@@ -11,23 +11,23 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://kaienlin.github.io/Algorithms/data-structures/</loc>
+     <lastmod>2020-01-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://kaienlin.github.io/Algorithms/graph/</loc>
+     <lastmod>2020-01-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://kaienlin.github.io/Algorithms/string/</loc>
+     <lastmod>2020-01-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://kaienlin.github.io/Algorithms/misc/</loc>
+     <lastmod>2020-01-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
