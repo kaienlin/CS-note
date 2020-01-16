@@ -1,0 +1,47 @@
+site_name: Algorithms
+
+theme:
+    name: 'material'
+    logo:
+        icon: 'code'
+    palette:
+        primary: 'white'
+        accent: 'lime'
+    feature:
+        tabs: true
+
+nav:
+    - Home: 'index.md'
+    - About:
+        - About: 'about.md'
+    - 'Data Structrues': './data-structures/'
+    - 'Graph': './graph/'
+    - 'String': './string/'
+    - 'Miscellaneous': './misc/'
+
+plugins:
+    - search
+    - macros
+
+markdown_extensions:
+    - toc:
+        permalink: true
+    - codehilite:
+        linenums: true
+    - pymdownx.arithmatex
+    - pymdownx.betterem:
+        smart_enable: all
+    - pymdownx.caret
+    - pymdownx.critic
+    - pymdownx.details
+    - pymdownx.inlinehilite
+    - pymdownx.magiclink
+    - pymdownx.mark
+    - pymdownx.smartsymbols
+    - pymdownx.superfences
+    - pymdownx.tasklist:
+        custom_checkbox: true
+    - pymdownx.tilde
+
+extra_javascript:
+    - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
