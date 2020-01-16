@@ -14,10 +14,10 @@ int main()
 
 ## Categories
 
-* [Data Structures](/data-structures/)
-* [Graph](/graph/)
-* [String](/string/)
-* [Miscellaneous](/misc/)
+* [Data Structures](./data-structures/)
+* [Graph](./graph/)
+* [String](./string/)
+* [Miscellaneous](./misc/)
 
 ## Tags
 

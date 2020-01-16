@@ -2,8 +2,8 @@ import html
 import os
 
 
-def declare_variables(variables, macro):
-    @macro
+def define_env(env):
+    @env.macro
     def code_from_file(filename: str, flavor: str = ""):
         """
         Load code from a file and save as a preformatted code block.
@@ -19,10 +19,10 @@ def declare_variables(variables, macro):
             return f"""<b>File not found: {fn}</b>"""
         with open(fn, "r") as f:
             return (
-                f"""{html.escape(f.read())}"""
+                f"""{(f.read())}"""
             )
 
-    @macro
+    @env.macro
     def external_markdown(fn: str):
         """
         Load markdown from files external to the mkdocs root path.
@@ -31,7 +31,7 @@ def declare_variables(variables, macro):
             {{external_markdown("../../README.md")}}
 
         """
-        docs_dir = variables.get("docs_dir", "docs")
+        docs_dir = env.variables.get("docs_dir", "docs")
         fn = os.path.abspath(os.path.join(docs_dir, fn))
         if not os.path.exists(fn):
             return f"""<b>File not found: {fn}</b>"""

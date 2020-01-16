@@ -10,7 +10,7 @@ theme:
         icon: 'code'
     palette:
         primary: 'white'
-        accent: 'lime'
+        accent: 'light blue'
     feature:
         tabs: true
 
@@ -18,10 +18,10 @@ nav:
     - Home: 'index.md'
     - About:
         - About: 'about.md'
-    - 'Data Structrues': '/data-structures/'
-    - 'Graph': '/graph/'
-    - 'String': '/string/'
-    - 'Miscellaneous': '/misc/'
+    - 'Data Structrues': './data-structures/index.md'
+    - 'Graph': './graph/index.md'
+    - 'String': './string/index.md'
+    - 'Miscellaneous': './misc/index.md'
 
 plugins:
     - search
