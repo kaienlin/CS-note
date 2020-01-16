@@ -1,4 +1,8 @@
 site_name: Algorithms
+site_url: https://kaienlin.github.io/Algorithms/
+
+repo_name: 'kaienlin/Algorithms'
+repo_url: 'https://github.com/kaienlin/Algorithms/'
 
 theme:
     name: 'material'
@@ -14,10 +18,10 @@ nav:
     - Home: 'index.md'
     - About:
         - About: 'about.md'
-    - 'Data Structrues': './data-structures/'
-    - 'Graph': './graph/'
-    - 'String': './string/'
-    - 'Miscellaneous': './misc/'
+    - 'Data Structrues': '/data-structures/'
+    - 'Graph': '/graph/'
+    - 'String': '/string/'
+    - 'Miscellaneous': '/misc/'
 
 plugins:
     - search
@@ -45,3 +49,9 @@ markdown_extensions:
 
 extra_javascript:
     - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/kaienlin'
+      
