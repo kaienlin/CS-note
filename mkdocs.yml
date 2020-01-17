@@ -19,6 +19,7 @@ nav:
     - About: 'about/index.md'
     - Algorithms: 'algorithms/index.md'
     - Courses: 'courses/index.md'
+    - Miscellaneous: 'misc/index.md'
 
 plugins:
     - search
@@ -27,8 +28,7 @@ plugins:
 markdown_extensions:
     - toc:
         permalink: true
-    - codehilite:
-        linenums: true
+    - codehilite
     - pymdownx.arithmatex
     - pymdownx.betterem:
         smart_enable: all
