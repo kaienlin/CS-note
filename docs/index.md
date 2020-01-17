@@ -2,7 +2,7 @@
 
 The documentation in this site is for:
 
-+ organize my knowledge more structurally 
++ organize my knowledge better
 + create a better view of what I have learned
 
 ## [Courses](./courses/index.md)
