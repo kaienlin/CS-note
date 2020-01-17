@@ -6,12 +6,12 @@
 
 * Topics: Divide & Conquer, Dynamic Programming
 * Programming Part:
-    * [ADA Meetup](./hw1/ada-meetup.md)
-    * [Maximum Subarray Revisited](./hw1/maximum-subarray-revisited.md)
-    * [Good Subpermutations](./hw1/good-subpermutations.md)
-    * [Different Strings](./hw1/different-strings.md)
+    1. [ADA Meetup](./hw1/ada-meetup.md)
+    2. [Maximum Subarray Revisited](./hw1/maximum-subarray-revisited.md)
+    3. [Good Subpermutations](./hw1/good-subpermutations.md)
+    4. [Different Strings](./hw1/different-strings.md)
 * Hand-written Part:
-    * [PDF file](https://github.com/kaienlin/CS-note/src/courses/ada-fall-2019/hw1/hand-written.pdf)
+    * [PDF file](https://github.com/kaienlin/CS-note/blob/master/src/courses/ada-fall-2019/hw1/hand-written.pdf)
 
 ---
 
