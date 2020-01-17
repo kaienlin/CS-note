@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://kaienlin.github.io/CS-note/algorithms/dfs/">
+        <link rel="canonical" href="https://kaienlin.github.io/CS-note/misc/kubuntu-installation-note/">
       
       
       
@@ -38,7 +38,7 @@
     
     
       
-        <title>Depth First Search - Computer Science Note</title>
+        <title>Kubuntu Installation Note - Computer Science Note</title>
       
     
     
@@ -87,7 +87,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#depth-first-search" tabindex="1" class="md-skip">
+      <a href="#kubuntu-installation-note" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -113,7 +113,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Depth First Search
+                Kubuntu Installation Note
               
             </span>
           
@@ -208,7 +208,7 @@
         
   <li class="md-tabs__item">
     
-      <a href="../" class="md-tabs__link md-tabs__link--active">
+      <a href="../../algorithms/" class="md-tabs__link md-tabs__link--active">
         Algorithms
       </a>
     
@@ -228,7 +228,7 @@
         
   <li class="md-tabs__item">
     
-      <a href="../../misc/" class="md-tabs__link md-tabs__link--active">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
         Miscellaneous
       </a>
     
@@ -308,7 +308,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../" title="Algorithms" class="md-nav__link">
+    <a href="../../algorithms/" title="Algorithms" class="md-nav__link">
       Algorithms
     </a>
   </li>
@@ -332,7 +332,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../misc/" title="Miscellaneous" class="md-nav__link">
+    <a href="../" title="Miscellaneous" class="md-nav__link">
       Miscellaneous
     </a>
   </li>
@@ -359,22 +359,85 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#basic-dfs" class="md-nav__link">
-    Basic DFS
+  <a href="#set-terminal-shortcut" class="md-nav__link">
+    set terminal shortcut
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#topological-sort" class="md-nav__link">
-    Topological Sort
+  <a href="#install-chrome" class="md-nav__link">
+    install chrome
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#find-bridge" class="md-nav__link">
-    Find bridge
+  <a href="#set-chrome-as-default-browser" class="md-nav__link">
+    Set Chrome as default browser
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-packages" class="md-nav__link">
+    install packages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dotfiles" class="md-nav__link">
+    dotfiles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-ssh-key-and-deploy" class="md-nav__link">
+    generate ssh key and deploy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clone-repo" class="md-nav__link">
+    clone repo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-vscode" class="md-nav__link">
+    install vscode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-chinese-pinyin-input-method-fcitx-google-pinyin" class="md-nav__link">
+    install chinese pinyin input method (fcitx + google-pinyin)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-mkdocs-for-this-website" class="md-nav__link">
+    install mkdocs for this website
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-oh-my-zsh" class="md-nav__link">
+    install oh-my-zsh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-themes" class="md-nav__link">
+    configure themes
   </a>
   
 </li>
@@ -395,52 +458,126 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/kaienlin/CS-note/edit/master/docs/algorithms/dfs.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/kaienlin/CS-note/edit/master/docs/misc/kubuntu-installation-note.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="depth-first-search">Depth First Search<a class="headerlink" href="#depth-first-search" title="Permanent link">&para;</a></h1>
-<h2 id="basic-dfs">Basic DFS<a class="headerlink" href="#basic-dfs" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="k">constexpr</span> <span class="kt">int</span> <span class="n">MAXN</span> <span class="o">=</span> <span class="mf">1e3</span><span class="o">+</span><span class="mi">5</span><span class="p">;</span>
-
-<span class="kt">int</span> <span class="n">N</span><span class="p">;</span>
-<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">G</span><span class="p">[</span><span class="n">MAXN</span><span class="p">];</span>
-<span class="kt">int</span> <span class="n">color</span><span class="p">[</span><span class="n">MAXN</span><span class="p">],</span> <span class="n">tin</span><span class="p">[</span><span class="n">MAXN</span><span class="p">],</span> <span class="n">tout</span><span class="p">[</span><span class="n">MAXN</span><span class="p">],</span> <span class="n">timer</span><span class="p">;</span>
-
-<span class="k">const</span> <span class="kt">int</span> <span class="n">WHITE</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GREY</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">BLACK</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-
-<span class="kt">void</span> <span class="nf">is_back_edge</span><span class="p">(</span><span class="kt">int</span> <span class="n">from</span><span class="p">,</span> <span class="kt">int</span> <span class="n">to</span><span class="p">)</span> <span class="p">{}</span>
-<span class="kt">void</span> <span class="nf">is_cross_edge</span><span class="p">(</span><span class="kt">int</span> <span class="n">from</span><span class="p">,</span> <span class="kt">int</span> <span class="n">to</span><span class="p">)</span> <span class="p">{}</span>
-
-<span class="kt">bool</span> <span class="nf">is_ancestor</span><span class="p">(</span><span class="kt">int</span> <span class="n">anc</span><span class="p">,</span> <span class="kt">int</span> <span class="n">des</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">tin</span><span class="p">[</span><span class="n">anc</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">tin</span><span class="p">[</span><span class="n">des</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">tout</span><span class="p">[</span><span class="n">anc</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">tout</span><span class="p">[</span><span class="n">des</span><span class="p">];</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">dfs_util</span><span class="p">(</span><span class="kt">int</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">color</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">GREY</span><span class="p">;</span>
-    <span class="n">tin</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">timer</span><span class="o">++</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="nl">u</span> <span class="p">:</span> <span class="n">G</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="n">color</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">==</span> <span class="n">WHITE</span> <span class="p">)</span>
-            <span class="n">dfs_util</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
-        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="n">color</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">==</span> <span class="n">GREY</span> <span class="p">)</span>
-            <span class="n">is_back_edge</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">u</span><span class="p">);</span>
-        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="n">color</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">==</span> <span class="n">BLACK</span> <span class="p">)</span>
-            <span class="n">is_cross_edge</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">u</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="n">color</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">BLACK</span><span class="p">;</span>
-    <span class="n">tout</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">timer</span><span class="o">++</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">dfs</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">fill</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">color</span> <span class="o">+</span> <span class="n">N</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">);</span>
-    <span class="n">timer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="n">color</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">WHITE</span> <span class="p">)</span>
-            <span class="n">dfs_util</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-<span class="p">}</span>
+                <h1 id="kubuntu-installation-note">Kubuntu Installation Note<a class="headerlink" href="#kubuntu-installation-note" title="Permanent link">&para;</a></h1>
+<p>Because I frequently mess up my operating system, plus I am so bad at debugging Linux issues, I usually just resort to <strong>reinstallation</strong>. So to minimize the time wasted, I make this note....</p>
+<hr />
+<h2 id="set-terminal-shortcut">set terminal shortcut<a class="headerlink" href="#set-terminal-shortcut" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>System Settings -&gt; Shortcuts -&gt; custom shortcut -&gt; edit -&gt; new ....</strong></li>
+<li>action is "konsole" (lowercase)</li>
+</ul>
+<hr />
+<h2 id="install-chrome">install chrome<a class="headerlink" href="#install-chrome" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Just do it</li>
+</ul>
+<hr />
+<h2 id="set-chrome-as-default-browser">Set Chrome as default browser<a class="headerlink" href="#set-chrome-as-default-browser" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>update</strong>: the easy way: create a temporary html file, right click -&gt; file extension setting -&gt; change the priority</p>
+</li>
+<li>
+<p>Beside the one in System Setting, run:
+<code>xdg-mime default google-chrome.desktop text/html</code></p>
+</li>
+<li>
+<p>Check <code>~/.config/mimeapps.list</code></p>
+</li>
+</ul>
+<hr />
+<h2 id="install-packages">install packages<a class="headerlink" href="#install-packages" title="Permanent link">&para;</a></h2>
+<ul>
+<li>vim </li>
+<li>wget </li>
+<li>curl </li>
+<li>build-essential </li>
+<li>git </li>
+<li>zsh </li>
+<li>exfat-fuse </li>
+<li>exfat-utils </li>
+<li>tmux</li>
+<li>python3-pip</li>
+</ul>
+<div class="codehilite"><pre><span></span>sudo apt install vim wget curl build-essential git zsh exfat-fuse exfat-utils tmux python3-pip
 </pre></div>
 
-<h2 id="topological-sort">Topological Sort<a class="headerlink" href="#topological-sort" title="Permanent link">&para;</a></h2>
-<h2 id="find-bridge">Find bridge<a class="headerlink" href="#find-bridge" title="Permanent link">&para;</a></h2>
+<hr />
+<h2 id="dotfiles">dotfiles<a class="headerlink" href="#dotfiles" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>.profile</code></li>
+<li><code>.tmux.conf</code></li>
+<li><code>.vimrc</code></li>
+</ul>
+<hr />
+<h2 id="generate-ssh-key-and-deploy">generate ssh key and deploy<a class="headerlink" href="#generate-ssh-key-and-deploy" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span>ssh-keygen <span class="o">&amp;&amp;</span> ssh-copy-id b07902075@linux1.csie.org
+</pre></div>
+
+<ul>
+<li>add ssh key to github</li>
+</ul>
+<hr />
+<h2 id="clone-repo">clone repo<a class="headerlink" href="#clone-repo" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Just do it</li>
+</ul>
+<hr />
+<h2 id="install-vscode">install vscode<a class="headerlink" href="#install-vscode" title="Permanent link">&para;</a></h2>
+<ul>
+<li>extensions: material theme(dark), git lens</li>
+</ul>
+<hr />
+<h2 id="install-chinese-pinyin-input-method-fcitx-google-pinyin">install chinese pinyin input method (fcitx + google-pinyin)<a class="headerlink" href="#install-chinese-pinyin-input-method-fcitx-google-pinyin" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Install required packages
+  <div class="codehilite"><pre><span></span>sudo apt install fcitx-bin fcitx-config-gtk2 fcitx-frontend-qt4 fcitx-frontend-qt5 fcitx-googlepinyin fcitx-imlist fcitx-module-dbus
+</pre></div></li>
+<li>
+<p>Edit <code>/etc/enviroment</code>
+  <div class="codehilite"><pre><span></span><span class="nv">GTK_IM_MODULE</span><span class="o">=</span>fcitx
+<span class="nv">QT_IM_MODULE</span><span class="o">=</span>fcitx
+<span class="nv">XMODIFIERS</span><span class="o">=</span><span class="s2">&quot;@im=fcitx&quot;</span>
+</pre></div></p>
+</li>
+<li>
+<p>Edit <code>~/.xprofile</code>
+  <div class="codehilite"><pre><span></span><span class="nb">export</span> <span class="nv">GTK_IM_MODULE</span><span class="o">=</span>fcitx
+<span class="nb">export</span> <span class="nv">QT_IM_MODULE</span><span class="o">=</span>fcitx
+<span class="nb">export</span> <span class="nv">XMODIFIERS</span><span class="o">=</span><span class="s2">&quot;@im=fcitx&quot;</span>
+</pre></div></p>
+</li>
+<li>
+<p>In <strong>System Settings -&gt; Regional Settings -&gt; Language</strong> change some setting</p>
+</li>
+<li>Run <code>im-config</code></li>
+<li>In <strong>System Settings</strong>, add fcitx to start-up routine</li>
+<li>Reboot</li>
+<li>In fcitx's configuration panel, add google-pinyin</li>
+<li>If you cannot toggle to traditional chinese, try <code>ctrl+shift+F</code></li>
+<li>If there is error when starting fcitx, it is possibly an ibus related issue</li>
+<li>If fcitx still doesn't work, try run <code>fcitx-diagnose</code></li>
+</ul>
+<hr />
+<h2 id="install-mkdocs-for-this-website">install mkdocs for this website<a class="headerlink" href="#install-mkdocs-for-this-website" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span>pip install mkdocs mkdocs-material mkdocs-macros-plugin pymdown-extensions
+</pre></div>
+
+<hr />
+<h2 id="install-oh-my-zsh">install oh-my-zsh<a class="headerlink" href="#install-oh-my-zsh" title="Permanent link">&para;</a></h2>
+<ul>
+<li>go to official page on github and follow its instructions</li>
+</ul>
+<hr />
+<h2 id="configure-themes">configure themes<a class="headerlink" href="#configure-themes" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Breeze, Breeze, Breeze...</li>
+<li>google cursor</li>
+</ul>
+<hr />
                 
                   
                 
