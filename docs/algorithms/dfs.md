@@ -3,7 +3,7 @@
 ## Basic DFS
 
 ```cpp
-{{ code_from_file('src/Graph/dfs_basic.cpp') }}
+{{ code_from_file('src/algorithms/dfs_basic.cpp') }}
 ```
 
 ## Topological Sort

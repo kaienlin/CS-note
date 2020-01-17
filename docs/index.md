@@ -1,29 +1,14 @@
-# Algorithms
+# Computer Science Note
 
-My own implementation of some algorithms
+The documentation in this site is for:
 
-```cpp
-#include <iostream>
++ organize my knowledge better
++ create a better view of what I have learned
 
-int main()
-{
-    std::cout << "hello, world" << std::endl;
-    return EXIT_SUCCESS;
-}
-```
+## [Courses](./courses/index.md)
 
-## Categories
+This area mostly contains homework assignments, sometimes with some class notes.
 
-* [Data Structures](./data-structures/)
-* [Graph](./graph/)
-* [String](./string/)
-* [Miscellaneous](./misc/)
+## [Algorithms](./algorithms/index.md)
 
-## Tags
-
-* Dynamic Programming
-* Divide & Conquer
-* Greedy
-* NP-Complete
-
-
+My own implementation of some algorithms, mainly in C++.

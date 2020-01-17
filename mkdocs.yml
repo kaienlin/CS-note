@@ -1,8 +1,8 @@
-site_name: Algorithms
-site_url: https://kaienlin.github.io/Algorithms/
+site_name: 'Computer Science Note'
+site_url: 'https://kaienlin.github.io/CS-note/'
 
-repo_name: 'kaienlin/Algorithms'
-repo_url: 'https://github.com/kaienlin/Algorithms/'
+repo_name: 'kaienlin/CS-note/'
+repo_url: 'https://github.com/kaienlin/CS-note/'
 
 theme:
     name: 'material'
@@ -16,12 +16,9 @@ theme:
 
 nav:
     - Home: 'index.md'
-    - About:
-        - About: 'about.md'
-    - 'Data Structrues': './data-structures/index.md'
-    - 'Graph': './graph/index.md'
-    - 'String': './string/index.md'
-    - 'Miscellaneous': './misc/index.md'
+    - About: 'about/index.md'
+    - Algorithms: 'algorithms/index.md'
+    - Courses: 'courses/index.md'
 
 plugins:
     - search
