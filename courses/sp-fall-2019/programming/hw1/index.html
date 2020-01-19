@@ -1,0 +1,938 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+        <link rel="canonical" href="https://kaienlin.github.io/CS-note/courses/sp-fall-2019/programming/hw1/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Programming Assignment #1 - Computer Science Note</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.1b62728e.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="light-blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#programming-assignment-1" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://kaienlin.github.io/CS-note/" title="Computer Science Note" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">code</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Computer Science Note
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Programming Assignment #1
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/kaienlin/CS-note/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    kaienlin/CS-note/
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../.." class="md-tabs__link md-tabs__link--active">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../../about/" class="md-tabs__link md-tabs__link--active">
+        About
+      </a>
+    
+  </li>
+
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../../algorithms/" class="md-tabs__link md-tabs__link--active">
+        Algorithms
+      </a>
+    
+  </li>
+
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../" class="md-tabs__link md-tabs__link--active">
+        Courses
+      </a>
+    
+  </li>
+
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../../misc/" class="md-tabs__link md-tabs__link--active">
+        Miscellaneous
+      </a>
+    
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://kaienlin.github.io/CS-note/" title="Computer Science Note" class="md-nav__button md-logo">
+      
+        <i class="md-icon">code</i>
+      
+    </a>
+    Computer Science Note
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/kaienlin/CS-note/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    kaienlin/CS-note/
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../algorithms/" title="Algorithms" class="md-nav__link">
+      Algorithms
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../" title="Courses" class="md-nav__link">
+      Courses
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../misc/" title="Miscellaneous" class="md-nav__link">
+      Miscellaneous
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#important-techniques-learned-in-this-homework" class="md-nav__link">
+    Important Techniques Learned in this Homework
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#readmetxt" class="md-nav__link">
+    readme.txt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serverc" class="md-nav__link">
+    server.c
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/kaienlin/CS-note/edit/master/docs/courses/sp-fall-2019/programming/hw1.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="programming-assignment-1">Programming Assignment #1<a class="headerlink" href="#programming-assignment-1" title="Permanent link">&para;</a></h1>
+<h2 id="important-techniques-learned-in-this-homework">Important Techniques Learned in this Homework<a class="headerlink" href="#important-techniques-learned-in-this-homework" title="Permanent link">&para;</a></h2>
+<ol>
+<li>how to use <code>select()</code> to do I/O multiplexing</li>
+<li>how to use <code>struct flock</code> and <code>fcntl()</code> to operate on <em>advisory file lock</em></li>
+</ol>
+<h2 id="readmetxt">readme.txt<a class="headerlink" href="#readmetxt" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span>我將這次作業分成兩個階段解決：
+
+（1） IO Multiplexing
+    * 卡關1：未將server的fd考慮進IO Multiplexing，因此我的程式會卡在accept這個函數，而無法去處理其他要求
+    * 卡關2：沒注意到在call select的時候，timeout可能會被改變 -&gt; solution: 復制一份tmp_timeout
+    * 優化1：原本我對3~maxfd進行select，後來改成只檢查到當下開啓的最大fd
+    * 優化2：將server及每一個connection都設成nonblocking mode，雖然在select的控制下理應不會被block，但因爲教授在上課時說建議兩者都做，所以我仍然將它們設爲nonblocking
+    * 優化3: 我本來每次select都只取一個最小可讀的fd做處理，其他留到下次select，雖然在query不頻繁的情況沒有問題，但當concurrency增加，這樣理論上很沒有效率，因此我便改爲
+            一次性對所有可讀的fd做處理
+
+    # 函數 void add_read_set(int fd): 將fd加到master_set
+    # 函數 fd_set do_select(): 回傳select處理過的fd_set
+
+（2） Requests Handling
+    * 卡關1：未注意到同一個process是無法利用fcntl得知自己之前是否有對一個byte上lock -&gt; 解決辦法：利用一個array去記憶現在一個id是否有被鎖住
+    * 對於寫入動作兩個階段的處理：我使用一個array (wait_for_cmd) 記錄現在一個connection是在哪一個階段。由於當我select到一個不是server的fd時，我都會先把該fd從master_set中移除，
+      因此若是第一階段的write query，我會在處理結束後再次將它加到master_set
+    * 我利用 F_SETLK 這個 fcntl command 來使檢查有沒有lock和上lock是一個atomic operation，如此一來就可以避免在這兩者之間發生context switch的情況
+
+    # 函數 void query_for_read(request *req): 處理read query
+    # 函數 query_for_write(request *req): 處理write_query，如果該connection是第二階段，則呼叫do_action後return
+    # 函數 do_action(request *req): 處理第二階段的write_query，包含對account_list的各種寫入操作
+</pre></div>
+
+<h2 id="serverc">server.c<a class="headerlink" href="#serverc" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdbool.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;errno.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;sys/socket.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;fcntl.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;netinet/in.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;arpa/inet.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;netdb.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;sys/select.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#define ERR_EXIT(a) { perror(a); exit(1); }</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="n">hostname</span><span class="p">[</span><span class="mi">512</span><span class="p">];</span>  <span class="c1">// server&#39;s hostname</span>
+    <span class="kt">unsigned</span> <span class="kt">short</span> <span class="n">port</span><span class="p">;</span>  <span class="c1">// port to listen</span>
+    <span class="kt">int</span> <span class="n">listen_fd</span><span class="p">;</span>  <span class="c1">// fd to wait for a new connection</span>
+<span class="p">}</span> <span class="n">server</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="n">host</span><span class="p">[</span><span class="mi">512</span><span class="p">];</span>  <span class="c1">// client&#39;s host</span>
+    <span class="kt">int</span> <span class="n">conn_fd</span><span class="p">;</span>  <span class="c1">// fd to talk with client</span>
+    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">512</span><span class="p">];</span>  <span class="c1">// data sent by/to client</span>
+    <span class="kt">size_t</span> <span class="n">buf_len</span><span class="p">;</span>  <span class="c1">// bytes used by buf</span>
+    <span class="c1">// you don&#39;t need to change this.</span>
+    <span class="kt">int</span> <span class="n">item</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">wait_for_write</span><span class="p">;</span>  <span class="c1">// used by handle_read to know if the header is read or not.</span>
+<span class="p">}</span> <span class="n">request</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">id</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">balance</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">Account</span><span class="p">;</span>
+
+<span class="n">server</span> <span class="n">svr</span><span class="p">;</span>  <span class="c1">// server</span>
+<span class="n">request</span><span class="o">*</span> <span class="n">requestP</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>  <span class="c1">// point to a list of requests</span>
+<span class="kt">int</span> <span class="n">maxfd</span><span class="p">;</span>  <span class="c1">// size of open file descriptor table, size of request list</span>
+
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">accept_read_header</span> <span class="o">=</span> <span class="s">&quot;ACCEPT_FROM_READ&quot;</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">accept_write_header</span> <span class="o">=</span> <span class="s">&quot;ACCEPT_FROM_WRITE&quot;</span><span class="p">;</span>
+
+<span class="c1">// Forwards</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">init_server</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">short</span> <span class="n">port</span><span class="p">);</span>
+<span class="c1">// initailize a server, exit for error</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">init_request</span><span class="p">(</span><span class="n">request</span><span class="o">*</span> <span class="n">reqP</span><span class="p">);</span>
+<span class="c1">// initailize a request instance</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">free_request</span><span class="p">(</span><span class="n">request</span><span class="o">*</span> <span class="n">reqP</span><span class="p">);</span>
+<span class="c1">// free resources used by a request instance</span>
+
+<span class="k">static</span> <span class="kt">int</span> <span class="nf">handle_read</span><span class="p">(</span><span class="n">request</span><span class="o">*</span> <span class="n">reqP</span><span class="p">);</span>
+<span class="c1">// return 0: socket ended, request done.</span>
+<span class="c1">// return 1: success, message (without header) got this time is in reqP-&gt;buf with reqP-&gt;buf_len bytes. read more until got &lt;= 0.</span>
+<span class="c1">// It&#39;s guaranteed that the header would be correctly set after the first read.</span>
+<span class="c1">// error code:</span>
+<span class="c1">// -1: client connection error</span>
+
+<span class="c1">// auxiliary function</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">end_conn</span><span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span>
+    <span class="n">free_request</span><span class="p">(</span><span class="o">&amp;</span><span class="n">requestP</span><span class="p">[</span><span class="n">fd</span><span class="p">]);</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">set_nonblock</span><span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">flags</span> <span class="o">=</span> <span class="n">fcntl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">F_GETFL</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">flags</span> <span class="o">|=</span> <span class="n">O_NONBLOCK</span><span class="p">;</span>
+    <span class="n">fcntl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">F_SETFL</span><span class="p">,</span> <span class="n">flags</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// io multiplexing</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">init_io_multiplexing</span><span class="p">();</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">add_read_set</span><span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">);</span>
+<span class="k">static</span> <span class="n">fd_set</span> <span class="nf">do_select</span><span class="p">();</span>
+
+<span class="c1">// request handling</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">init_req_handling</span><span class="p">();</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">query_for_read</span><span class="p">(</span><span class="n">request</span> <span class="o">*</span><span class="n">req</span><span class="p">);</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">query_for_write</span><span class="p">(</span><span class="n">request</span> <span class="o">*</span><span class="n">req</span><span class="p">);</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">do_action</span><span class="p">(</span><span class="n">request</span> <span class="o">*</span><span class="n">req</span><span class="p">,</span> <span class="kt">int</span> <span class="n">fd</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="n">maxfd_now</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// the max fd among current open fds</span>
+<span class="n">fd_set</span> <span class="n">master_set</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">ret</span><span class="p">;</span>
+
+    <span class="k">struct</span> <span class="n">sockaddr_in</span> <span class="n">cliaddr</span><span class="p">;</span>  <span class="c1">// used by accept()</span>
+    <span class="kt">int</span> <span class="n">clilen</span><span class="p">;</span>
+
+    <span class="kt">int</span> <span class="n">conn_fd</span><span class="p">;</span>  <span class="c1">// fd for a new connection with client</span>
+    <span class="kt">int</span> <span class="n">file_fd</span><span class="p">;</span>  <span class="c1">// fd for file that we open for reading</span>
+    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">512</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">buf_len</span><span class="p">;</span>
+
+    <span class="c1">// Parse args.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;usage: %s [port]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Initialize server</span>
+    <span class="n">init_server</span><span class="p">((</span><span class="kt">unsigned</span> <span class="kt">short</span><span class="p">)</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]));</span>
+
+    <span class="c1">// change server to nonblocking mode</span>
+    <span class="n">set_nonblock</span><span class="p">(</span><span class="n">svr</span><span class="p">.</span><span class="n">listen_fd</span><span class="p">);</span>
+
+    <span class="c1">// Get file descripter table size and initize request table</span>
+    <span class="n">maxfd</span> <span class="o">=</span> <span class="n">getdtablesize</span><span class="p">();</span>
+    <span class="n">requestP</span> <span class="o">=</span> <span class="p">(</span><span class="n">request</span><span class="o">*</span><span class="p">)</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> <span class="o">*</span> <span class="n">maxfd</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">requestP</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">ERR_EXIT</span><span class="p">(</span><span class="s">&quot;out of memory allocating all requests&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">maxfd</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">init_request</span><span class="p">(</span><span class="o">&amp;</span><span class="n">requestP</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+    <span class="n">requestP</span><span class="p">[</span><span class="n">svr</span><span class="p">.</span><span class="n">listen_fd</span><span class="p">].</span><span class="n">conn_fd</span> <span class="o">=</span> <span class="n">svr</span><span class="p">.</span><span class="n">listen_fd</span><span class="p">;</span>
+    <span class="n">strcpy</span><span class="p">(</span><span class="n">requestP</span><span class="p">[</span><span class="n">svr</span><span class="p">.</span><span class="n">listen_fd</span><span class="p">].</span><span class="n">host</span><span class="p">,</span> <span class="n">svr</span><span class="p">.</span><span class="n">hostname</span><span class="p">);</span>
+
+    <span class="c1">// Loop for handling connections</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">starting on %.80s, port %d, fd %d, maxconn %d...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">svr</span><span class="p">.</span><span class="n">hostname</span><span class="p">,</span> <span class="n">svr</span><span class="p">.</span><span class="n">port</span><span class="p">,</span> <span class="n">svr</span><span class="p">.</span><span class="n">listen_fd</span><span class="p">,</span> <span class="n">maxfd</span><span class="p">);</span>
+
+    <span class="n">init_io_multiplexing</span><span class="p">();</span>
+    <span class="n">add_read_set</span><span class="p">(</span><span class="n">svr</span><span class="p">.</span><span class="n">listen_fd</span><span class="p">);</span>
+    <span class="n">init_req_handling</span><span class="p">();</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// select one ready to read fd</span>
+        <span class="n">fd_set</span> <span class="n">working_set</span> <span class="o">=</span> <span class="n">do_select</span><span class="p">();</span>
+
+        <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">fd</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="n">fd</span> <span class="o">&lt;=</span> <span class="n">maxfd_now</span><span class="p">;</span> <span class="n">fd</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="n">FD_ISSET</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">working_set</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span> <span class="n">fd</span> <span class="o">==</span> <span class="n">svr</span><span class="p">.</span><span class="n">listen_fd</span> <span class="p">)</span> <span class="p">{</span>
+                    <span class="c1">// Check new connection</span>
+                    <span class="n">clilen</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">cliaddr</span><span class="p">);</span>
+                    <span class="n">conn_fd</span> <span class="o">=</span> <span class="n">accept</span><span class="p">(</span><span class="n">svr</span><span class="p">.</span><span class="n">listen_fd</span><span class="p">,</span> <span class="p">(</span><span class="k">struct</span> <span class="n">sockaddr</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">cliaddr</span><span class="p">,</span> <span class="p">(</span><span class="kt">socklen_t</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">clilen</span><span class="p">);</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">conn_fd</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="n">errno</span> <span class="o">==</span> <span class="n">EINTR</span> <span class="o">||</span> <span class="n">errno</span> <span class="o">==</span> <span class="n">EAGAIN</span><span class="p">)</span> <span class="p">{</span> <span class="k">continue</span><span class="p">;</span> <span class="p">}</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="n">errno</span> <span class="o">==</span> <span class="n">ENFILE</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;out of file descriptor table ... (maxconn %d)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">maxfd</span><span class="p">);</span>
+                            <span class="k">continue</span><span class="p">;</span>
+                        <span class="p">}</span>
+                        <span class="n">ERR_EXIT</span><span class="p">(</span><span class="s">&quot;accept&quot;</span><span class="p">)</span>
+                    <span class="p">}</span>
+
+                    <span class="c1">// add conn_fd to io multiplexing waiting queue</span>
+                    <span class="n">add_read_set</span><span class="p">(</span><span class="n">conn_fd</span><span class="p">);</span>
+                    <span class="n">set_nonblock</span><span class="p">(</span><span class="n">conn_fd</span><span class="p">);</span>
+
+                    <span class="n">requestP</span><span class="p">[</span><span class="n">conn_fd</span><span class="p">].</span><span class="n">conn_fd</span> <span class="o">=</span> <span class="n">conn_fd</span><span class="p">;</span>
+                    <span class="n">strcpy</span><span class="p">(</span><span class="n">requestP</span><span class="p">[</span><span class="n">conn_fd</span><span class="p">].</span><span class="n">host</span><span class="p">,</span> <span class="n">inet_ntoa</span><span class="p">(</span><span class="n">cliaddr</span><span class="p">.</span><span class="n">sin_addr</span><span class="p">));</span>
+                    <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;getting a new request... fd %d from %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">conn_fd</span><span class="p">,</span> <span class="n">requestP</span><span class="p">[</span><span class="n">conn_fd</span><span class="p">].</span><span class="n">host</span><span class="p">);</span>
+
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="n">FD_CLR</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">master_set</span><span class="p">);</span>
+                    <span class="n">ret</span> <span class="o">=</span> <span class="n">handle_read</span><span class="p">(</span><span class="o">&amp;</span><span class="n">requestP</span><span class="p">[</span><span class="n">fd</span><span class="p">]);</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;bad request from %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">requestP</span><span class="p">[</span><span class="n">fd</span><span class="p">].</span><span class="n">host</span><span class="p">);</span>
+                        <span class="k">continue</span><span class="p">;</span>
+                    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="cp">#ifdef READ_SERVER</span>
+                        <span class="n">query_for_read</span><span class="p">(</span><span class="o">&amp;</span><span class="n">requestP</span><span class="p">[</span><span class="n">fd</span><span class="p">]);</span>
+<span class="cp">#else</span>
+                        <span class="n">query_for_write</span><span class="p">(</span><span class="o">&amp;</span><span class="n">requestP</span><span class="p">[</span><span class="n">fd</span><span class="p">]);</span>
+<span class="cp">#endif</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">requestP</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Start of IO Multiplexing Utilities</span>
+<span class="k">const</span> <span class="k">static</span> <span class="k">struct</span> <span class="n">timeval</span> <span class="n">timeout</span> <span class="o">=</span> <span class="p">{</span> <span class="p">.</span><span class="n">tv_sec</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="p">.</span><span class="n">tv_usec</span> <span class="o">=</span> <span class="mi">10000</span> <span class="p">};</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">init_io_multiplexing</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">FD_ZERO</span><span class="p">(</span><span class="o">&amp;</span><span class="n">master_set</span><span class="p">);</span>
+    <span class="n">maxfd_now</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">add_read_set</span><span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">FD_SET</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">master_set</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">fd</span> <span class="o">&gt;</span> <span class="n">maxfd_now</span> <span class="p">)</span>
+        <span class="n">maxfd_now</span> <span class="o">=</span> <span class="n">fd</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="n">fd_set</span> <span class="nf">do_select</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">fd_set</span> <span class="n">fdset</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">timeval</span> <span class="n">tmp_timeout</span><span class="p">;</span>
+    <span class="n">memcpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">fdset</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">master_set</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">fd_set</span><span class="p">));</span>
+    <span class="n">memcpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tmp_timeout</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">timeout</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">timeout</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">select</span><span class="p">(</span><span class="n">maxfd_now</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">fdset</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">tmp_timeout</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="p">)</span>
+        <span class="n">ERR_EXIT</span><span class="p">(</span><span class="s">&quot;select&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">fdset</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// End of IO Multiplexing Utilities</span>
+
+
+<span class="c1">// Start of Request Handling Utilities</span>
+<span class="k">static</span> <span class="kt">bool</span> <span class="nf">try_set_lock</span><span class="p">(</span><span class="kt">short</span> <span class="n">type</span><span class="p">,</span> <span class="kt">off_t</span> <span class="n">start</span><span class="p">,</span> <span class="kt">off_t</span> <span class="n">len</span><span class="p">);</span>
+<span class="k">static</span> <span class="kt">bool</span> <span class="nf">is_locked</span><span class="p">(</span><span class="kt">short</span> <span class="n">type</span><span class="p">,</span> <span class="kt">off_t</span> <span class="n">start</span><span class="p">,</span> <span class="kt">off_t</span> <span class="n">len</span><span class="p">);</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">un_lock</span><span class="p">(</span><span class="kt">off_t</span> <span class="n">start</span><span class="p">,</span> <span class="kt">off_t</span> <span class="n">len</span><span class="p">);</span>
+<span class="k">static</span> <span class="k">struct</span> <span class="n">flock</span> <span class="nf">mk_lock</span><span class="p">(</span><span class="kt">short</span> <span class="n">type</span><span class="p">,</span> <span class="kt">off_t</span> <span class="n">start</span><span class="p">,</span> <span class="kt">off_t</span> <span class="n">len</span><span class="p">);</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">send_msg</span><span class="p">(</span><span class="n">request</span> <span class="o">*</span><span class="n">req</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">msg</span><span class="p">)</span> <span class="p">{</span> <span class="n">write</span><span class="p">(</span><span class="n">req</span><span class="o">-&gt;</span><span class="n">conn_fd</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">msg</span><span class="p">));</span> <span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">account_fd</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">wait_for_cmd</span><span class="p">;</span>
+<span class="kt">bool</span> <span class="n">locked</span><span class="p">[</span><span class="mi">21</span><span class="p">];</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">init_req_handling</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">account_fd</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="s">&quot;account_list&quot;</span><span class="p">,</span> <span class="n">O_RDWR</span><span class="p">);</span>
+    <span class="n">wait_for_cmd</span> <span class="o">=</span> <span class="n">calloc</span><span class="p">(</span><span class="n">maxfd</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+    <span class="n">memset</span><span class="p">(</span><span class="n">locked</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">locked</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">query_for_read</span><span class="p">(</span><span class="n">request</span> <span class="o">*</span><span class="n">req</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">10</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">id</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">req</span><span class="o">-&gt;</span><span class="n">buf</span><span class="p">);</span>
+
+    <span class="kt">off_t</span> <span class="n">pos</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Account</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">id</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="kt">off_t</span> <span class="n">len</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Account</span><span class="p">);</span>
+
+    <span class="c1">// try set read lock</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">locked</span><span class="p">[</span><span class="n">id</span><span class="p">]</span> <span class="o">||</span> <span class="o">!</span><span class="n">try_set_lock</span><span class="p">(</span><span class="n">F_RDLCK</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">len</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="n">send_msg</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="s">&quot;This account is locked.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="n">end_conn</span><span class="p">(</span><span class="n">req</span><span class="o">-&gt;</span><span class="n">conn_fd</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// read bytes</span>
+    <span class="n">lseek</span><span class="p">(</span><span class="n">account_fd</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Account</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">id</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">SEEK_SET</span><span class="p">);</span>
+    <span class="n">Account</span> <span class="n">ans</span><span class="p">;</span>
+    <span class="n">read</span><span class="p">(</span><span class="n">account_fd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ans</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Account</span><span class="p">));</span>
+
+    <span class="n">un_lock</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+
+    <span class="c1">// write to client</span>
+    <span class="n">sprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="s">&quot;%d %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">ans</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="n">ans</span><span class="p">.</span><span class="n">balance</span><span class="p">);</span>
+    <span class="n">send_msg</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">buf</span><span class="p">);</span>
+    <span class="n">end_conn</span><span class="p">(</span><span class="n">req</span><span class="o">-&gt;</span><span class="n">conn_fd</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">query_for_write</span><span class="p">(</span><span class="n">request</span> <span class="o">*</span><span class="n">req</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">wait_for_cmd</span><span class="p">[</span><span class="n">req</span><span class="o">-&gt;</span><span class="n">conn_fd</span><span class="p">]</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="n">do_action</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">wait_for_cmd</span><span class="p">[</span><span class="n">req</span><span class="o">-&gt;</span><span class="n">conn_fd</span><span class="p">]);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">10</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">id</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">req</span><span class="o">-&gt;</span><span class="n">buf</span><span class="p">);</span>
+
+    <span class="kt">off_t</span> <span class="n">pos</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Account</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">id</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="kt">off_t</span> <span class="n">len</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Account</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span> <span class="n">locked</span><span class="p">[</span><span class="n">id</span><span class="p">]</span> <span class="o">||</span> <span class="o">!</span><span class="n">try_set_lock</span><span class="p">(</span><span class="n">F_WRLCK</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">len</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="n">send_msg</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="s">&quot;This account is locked.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="n">end_conn</span><span class="p">(</span><span class="n">req</span><span class="o">-&gt;</span><span class="n">conn_fd</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">send_msg</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="s">&quot;This account is modifiable.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+    <span class="n">locked</span><span class="p">[</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">wait_for_cmd</span><span class="p">[</span><span class="n">req</span><span class="o">-&gt;</span><span class="n">conn_fd</span><span class="p">]</span> <span class="o">=</span> <span class="n">id</span><span class="p">;</span>
+
+    <span class="c1">// add to read set</span>
+    <span class="n">add_read_set</span><span class="p">(</span><span class="n">req</span><span class="o">-&gt;</span><span class="n">conn_fd</span><span class="p">);</span>
+
+    <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">do_action</span><span class="p">(</span><span class="n">request</span> <span class="o">*</span><span class="n">req</span><span class="p">,</span> <span class="kt">int</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="n">cmd</span><span class="p">[</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">10</span><span class="p">],</span> <span class="n">buf</span><span class="p">[</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">10</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="n">sscanf</span><span class="p">(</span><span class="n">req</span><span class="o">-&gt;</span><span class="n">buf</span><span class="p">,</span> <span class="s">&quot;%s %d&quot;</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+
+    <span class="kt">off_t</span> <span class="n">pos</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Account</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">id</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="kt">off_t</span> <span class="n">len</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Account</span><span class="p">);</span>
+
+    <span class="n">Account</span> <span class="n">a</span><span class="p">;</span>
+    <span class="n">lseek</span><span class="p">(</span><span class="n">account_fd</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">SEEK_SET</span><span class="p">);</span>
+    <span class="n">read</span><span class="p">(</span><span class="n">account_fd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Account</span><span class="p">));</span>
+
+    <span class="kt">bool</span> <span class="n">failed</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="s">&quot;save&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="n">a</span><span class="p">.</span><span class="n">balance</span> <span class="o">+=</span> <span class="n">n</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">failed</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="s">&quot;withdraw&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">a</span><span class="p">.</span><span class="n">balance</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="n">a</span><span class="p">.</span><span class="n">balance</span> <span class="o">-=</span> <span class="n">n</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">failed</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="s">&quot;transfer&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">bid</span><span class="p">;</span>
+        <span class="n">sscanf</span><span class="p">(</span><span class="n">req</span><span class="o">-&gt;</span><span class="n">buf</span><span class="p">,</span> <span class="s">&quot;%s %d %d&quot;</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">bid</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+        <span class="k">const</span> <span class="kt">off_t</span> <span class="n">bpos</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Account</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">bid</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">balance</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="n">failed</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">a</span><span class="p">.</span><span class="n">balance</span> <span class="o">-=</span> <span class="n">n</span><span class="p">;</span>
+            <span class="n">lseek</span><span class="p">(</span><span class="n">account_fd</span><span class="p">,</span> <span class="n">bpos</span><span class="p">,</span> <span class="n">SEEK_SET</span><span class="p">);</span>
+            <span class="n">Account</span> <span class="n">b</span><span class="p">;</span>
+            <span class="n">read</span><span class="p">(</span><span class="n">account_fd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Account</span><span class="p">));</span>
+            <span class="n">b</span><span class="p">.</span><span class="n">balance</span> <span class="o">+=</span> <span class="n">n</span><span class="p">;</span>
+            <span class="n">lseek</span><span class="p">(</span><span class="n">account_fd</span><span class="p">,</span> <span class="n">bpos</span><span class="p">,</span> <span class="n">SEEK_SET</span><span class="p">);</span>
+            <span class="n">write</span><span class="p">(</span><span class="n">account_fd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Account</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="s">&quot;balance&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="n">a</span><span class="p">.</span><span class="n">balance</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">failed</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span> <span class="n">failed</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="n">send_msg</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="s">&quot;Operation failed.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">lseek</span><span class="p">(</span><span class="n">account_fd</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">SEEK_SET</span><span class="p">);</span>
+        <span class="n">write</span><span class="p">(</span><span class="n">account_fd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Account</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="n">un_lock</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+
+    <span class="n">locked</span><span class="p">[</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">wait_for_cmd</span><span class="p">[</span><span class="n">req</span><span class="o">-&gt;</span><span class="n">conn_fd</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">end_conn</span><span class="p">(</span><span class="n">req</span><span class="o">-&gt;</span><span class="n">conn_fd</span><span class="p">);</span>
+
+    <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">bool</span> <span class="nf">try_set_lock</span><span class="p">(</span><span class="kt">short</span> <span class="n">type</span><span class="p">,</span> <span class="kt">off_t</span> <span class="n">start</span><span class="p">,</span> <span class="kt">off_t</span> <span class="n">len</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="n">flock</span> <span class="n">flk</span> <span class="o">=</span> <span class="n">mk_lock</span><span class="p">(</span><span class="n">type</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span> <span class="n">fcntl</span><span class="p">(</span><span class="n">account_fd</span><span class="p">,</span> <span class="n">F_SETLK</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">flk</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">errno</span> <span class="o">==</span> <span class="n">EACCES</span> <span class="o">||</span> <span class="n">errno</span> <span class="o">==</span> <span class="n">EAGAIN</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">ERR_EXIT</span><span class="p">(</span><span class="s">&quot;fcntl&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">un_lock</span><span class="p">(</span><span class="kt">off_t</span> <span class="n">start</span><span class="p">,</span> <span class="kt">off_t</span> <span class="n">len</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="n">flock</span> <span class="n">flk</span> <span class="o">=</span> <span class="n">mk_lock</span><span class="p">(</span><span class="n">F_UNLCK</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">fcntl</span><span class="p">(</span><span class="n">account_fd</span><span class="p">,</span> <span class="n">F_SETLK</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">flk</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">)</span>
+        <span class="n">ERR_EXIT</span><span class="p">(</span><span class="s">&quot;un_lock&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="k">struct</span> <span class="n">flock</span> <span class="nf">mk_lock</span><span class="p">(</span><span class="kt">short</span> <span class="n">type</span><span class="p">,</span> <span class="kt">off_t</span> <span class="n">start</span><span class="p">,</span> <span class="kt">off_t</span> <span class="n">len</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="n">flock</span> <span class="n">flk</span><span class="p">;</span>
+    <span class="n">flk</span><span class="p">.</span><span class="n">l_type</span> <span class="o">=</span> <span class="n">type</span><span class="p">;</span>
+    <span class="n">flk</span><span class="p">.</span><span class="n">l_whence</span> <span class="o">=</span> <span class="n">SEEK_SET</span><span class="p">;</span>
+    <span class="n">flk</span><span class="p">.</span><span class="n">l_start</span> <span class="o">=</span> <span class="n">start</span><span class="p">;</span>
+    <span class="n">flk</span><span class="p">.</span><span class="n">l_len</span> <span class="o">=</span> <span class="n">len</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">flk</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// End of Request Handling Utilities</span>
+
+<span class="c1">// ======================================================================================================</span>
+<span class="c1">// You don&#39;t need to know how the following codes are working</span>
+<span class="cp">#include</span> <span class="cpf">&lt;fcntl.h&gt;</span><span class="cp"></span>
+
+<span class="k">static</span> <span class="kt">void</span><span class="o">*</span> <span class="nf">e_malloc</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">size</span><span class="p">);</span>
+
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">init_request</span><span class="p">(</span><span class="n">request</span><span class="o">*</span> <span class="n">reqP</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">reqP</span><span class="o">-&gt;</span><span class="n">conn_fd</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="n">reqP</span><span class="o">-&gt;</span><span class="n">buf_len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">reqP</span><span class="o">-&gt;</span><span class="n">item</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">reqP</span><span class="o">-&gt;</span><span class="n">wait_for_write</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">free_request</span><span class="p">(</span><span class="n">request</span><span class="o">*</span> <span class="n">reqP</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/*if (reqP-&gt;filename != NULL) {</span>
+<span class="cm">        free(reqP-&gt;filename);</span>
+<span class="cm">        reqP-&gt;filename = NULL;</span>
+<span class="cm">    }*/</span>
+    <span class="n">init_request</span><span class="p">(</span><span class="n">reqP</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// return 0: socket ended, request done.</span>
+<span class="c1">// return 1: success, message (without header) got this time is in reqP-&gt;buf with reqP-&gt;buf_len bytes. read more until got &lt;= 0.</span>
+<span class="c1">// It&#39;s guaranteed that the header would be correctly set after the first read.</span>
+<span class="c1">// error code:</span>
+<span class="c1">// -1: client connection error</span>
+<span class="k">static</span> <span class="kt">int</span> <span class="nf">handle_read</span><span class="p">(</span><span class="n">request</span><span class="o">*</span> <span class="n">reqP</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">r</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">512</span><span class="p">];</span>
+
+    <span class="c1">// Read in request from client</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">reqP</span><span class="o">-&gt;</span><span class="n">conn_fd</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">r</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">char</span><span class="o">*</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">strstr</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="s">&quot;</span><span class="se">\015\012</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">newline_len</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="c1">// be careful that in Windows, line ends with \015\012</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">p1</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">p1</span> <span class="o">=</span> <span class="n">strstr</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="s">&quot;</span><span class="se">\012</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="n">newline_len</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">p1</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">ERR_EXIT</span><span class="p">(</span><span class="s">&quot;this really should not happen...&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="kt">size_t</span> <span class="n">len</span> <span class="o">=</span> <span class="n">p1</span> <span class="o">-</span> <span class="n">buf</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">memmove</span><span class="p">(</span><span class="n">reqP</span><span class="o">-&gt;</span><span class="n">buf</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+    <span class="n">reqP</span><span class="o">-&gt;</span><span class="n">buf</span><span class="p">[</span><span class="n">len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+    <span class="n">reqP</span><span class="o">-&gt;</span><span class="n">buf_len</span> <span class="o">=</span> <span class="n">len</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">init_server</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">short</span> <span class="n">port</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="n">sockaddr_in</span> <span class="n">servaddr</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">tmp</span><span class="p">;</span>
+
+    <span class="n">gethostname</span><span class="p">(</span><span class="n">svr</span><span class="p">.</span><span class="n">hostname</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">svr</span><span class="p">.</span><span class="n">hostname</span><span class="p">));</span>
+    <span class="n">svr</span><span class="p">.</span><span class="n">port</span> <span class="o">=</span> <span class="n">port</span><span class="p">;</span>
+
+    <span class="n">svr</span><span class="p">.</span><span class="n">listen_fd</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">SOCK_STREAM</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">svr</span><span class="p">.</span><span class="n">listen_fd</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">ERR_EXIT</span><span class="p">(</span><span class="s">&quot;socket&quot;</span><span class="p">);</span>
+
+    <span class="n">bzero</span><span class="p">(</span><span class="o">&amp;</span><span class="n">servaddr</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">servaddr</span><span class="p">));</span>
+    <span class="n">servaddr</span><span class="p">.</span><span class="n">sin_family</span> <span class="o">=</span> <span class="n">AF_INET</span><span class="p">;</span>
+    <span class="n">servaddr</span><span class="p">.</span><span class="n">sin_addr</span><span class="p">.</span><span class="n">s_addr</span> <span class="o">=</span> <span class="n">htonl</span><span class="p">(</span><span class="n">INADDR_ANY</span><span class="p">);</span>
+    <span class="n">servaddr</span><span class="p">.</span><span class="n">sin_port</span> <span class="o">=</span> <span class="n">htons</span><span class="p">(</span><span class="n">port</span><span class="p">);</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">setsockopt</span><span class="p">(</span><span class="n">svr</span><span class="p">.</span><span class="n">listen_fd</span><span class="p">,</span> <span class="n">SOL_SOCKET</span><span class="p">,</span> <span class="n">SO_REUSEADDR</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">tmp</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">tmp</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">ERR_EXIT</span><span class="p">(</span><span class="s">&quot;setsockopt&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">bind</span><span class="p">(</span><span class="n">svr</span><span class="p">.</span><span class="n">listen_fd</span><span class="p">,</span> <span class="p">(</span><span class="k">struct</span> <span class="n">sockaddr</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">servaddr</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">servaddr</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">ERR_EXIT</span><span class="p">(</span><span class="s">&quot;bind&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">listen</span><span class="p">(</span><span class="n">svr</span><span class="p">.</span><span class="n">listen_fd</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">ERR_EXIT</span><span class="p">(</span><span class="s">&quot;listen&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span><span class="o">*</span> <span class="nf">e_malloc</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">void</span><span class="o">*</span> <span class="n">ptr</span><span class="p">;</span>
+
+    <span class="n">ptr</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ptr</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="n">ERR_EXIT</span><span class="p">(</span><span class="s">&quot;out of memory&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">ptr</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/kaienlin" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.808e90bb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
