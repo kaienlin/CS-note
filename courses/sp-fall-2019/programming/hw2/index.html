@@ -1,0 +1,1044 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+        <link rel="canonical" href="https://kaienlin.github.io/CS-note/courses/sp-fall-2019/programming/hw2/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Programming Assignment #2 - Computer Science Note</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.1b62728e.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="light-blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#programming-assignment-2" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://kaienlin.github.io/CS-note/" title="Computer Science Note" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">code</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Computer Science Note
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Programming Assignment #2
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/kaienlin/CS-note/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    kaienlin/CS-note/
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../.." class="md-tabs__link md-tabs__link--active">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../../about/" class="md-tabs__link md-tabs__link--active">
+        About
+      </a>
+    
+  </li>
+
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../../algorithms/" class="md-tabs__link md-tabs__link--active">
+        Algorithms
+      </a>
+    
+  </li>
+
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../" class="md-tabs__link md-tabs__link--active">
+        Courses
+      </a>
+    
+  </li>
+
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../../misc/" class="md-tabs__link md-tabs__link--active">
+        Miscellaneous
+      </a>
+    
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://kaienlin.github.io/CS-note/" title="Computer Science Note" class="md-nav__button md-logo">
+      
+        <i class="md-icon">code</i>
+      
+    </a>
+    Computer Science Note
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/kaienlin/CS-note/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    kaienlin/CS-note/
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../algorithms/" title="Algorithms" class="md-nav__link">
+      Algorithms
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../" title="Courses" class="md-nav__link">
+      Courses
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../misc/" title="Miscellaneous" class="md-nav__link">
+      Miscellaneous
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#important-techniques-learned-in-this-homework" class="md-nav__link">
+    Important Techniques Learned in this Homework
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#readmetxt" class="md-nav__link">
+    readme.txt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bidding_systemc" class="md-nav__link">
+    bidding_system.c
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hostc" class="md-nav__link">
+    host.c
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#playerc" class="md-nav__link">
+    player.c
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/kaienlin/CS-note/edit/master/docs/courses/sp-fall-2019/programming/hw2.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="programming-assignment-2">Programming Assignment #2<a class="headerlink" href="#programming-assignment-2" title="Permanent link">&para;</a></h1>
+<h2 id="important-techniques-learned-in-this-homework">Important Techniques Learned in this Homework<a class="headerlink" href="#important-techniques-learned-in-this-homework" title="Permanent link">&para;</a></h2>
+<ol>
+<li>how to use <code>fork()</code>, <code>wait()</code>, <code>waitpid()</code></li>
+<li>how to use <code>pipe()</code> and <code>mkfifo()</code> to do <strong>inter process communication(IPC)</strong></li>
+<li>how to avoid deadlock when opening a <strong>FIFO</strong></li>
+</ol>
+<h2 id="readmetxt">readme.txt<a class="headerlink" href="#readmetxt" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span>Execution:
+    (1) Compilation: $ make
+    (2) Run: $ ./bidding_system [host_num] [player_num]
+
+    * NOTE: Please ensure that there are no any .FIFO files in working directory, or it will exit and print error message
+
+Description:
+    (1) bidding_system.c:
+        * algorithm to enumerate all subset of size 8 on the player set: 
+            一開始，我將 int set[8] 初始化成 {1, 2, 3, 4, 5, 6, 7, 8} 並在每次需要assign新的coompetition給root_host時，
+            函數 next_subset() 會將 set[] 改成字典序比原本的subset大的最小subset。具體實作方式爲從 i = 7 開始往前掃，如果
+            把 set[i] + 1 不超過 player_num，且 set[i] + 1 ... player_num 足夠填完 set[i...7]，就令 set[i] = set[i] + 1
+            ，並令set[i+1] = set[i] + 1, set[i+2] = set[i+1] + 1...以此類推。如此以來，我就能得到字典序比原本的subset大的最小subset。
+            若找不到這樣的subset，也就是當前的subset已經是字典序最大的subset了，next_subset()回傳-1,我就知道已經枚舉完 C(player_num, 8)
+            種不同的subset了。
+
+        * create FIFO:
+            我在把每一個FIFO成功open之後，便立刻unlink掉他們，確保即使程式crash了，也不會遺留這些檔案。
+
+        * avoid deadlock when opening FIFO:
+            因爲在blocking mode下open FIFO時，如果對面沒有reader/writer，便會被block住，因此，我在執行open() + exec()後才能去open這些
+            FIFO，如此以來，如果其中一邊被block住了，系統便會context switch到另一個process，此時因爲他已經能看到reader/writer，所以就不會
+            被block住。最後在切換會本來被block住的process，就能使parent和child都順利開啓FIFO。
+
+        * output rank of each player:
+            因爲在排序後我們仍然要知道每一個player本來的index，所以我對pointer排序，這樣就可以透過pointer的value得知原本在array中的位置。
+
+    (2) host.c:
+        * pipe
+            我在host建pipe的策略是對於每一個不同的child、write/read都各自建立一個獨立的pipe，我認爲這樣可以減少發生race condition的可能性。
+
+        * function sublist(int list[], int L, int R, char buf[]):
+            將list[]中 [L, R) 的數字轉換爲字串寫到buffer裏，方便我建構給child的訊息。
+
+    (3) player.c:
+        * 由於對於player來說，所有讀寫都是在standard input/output完成的，因此只需要簡單的scanf/printf就能達成我們的要求
+</pre></div>
+
+<h2 id="bidding_systemc">bidding_system.c<a class="headerlink" href="#bidding_systemc" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;fcntl.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;sys/wait.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;sys/stat.h&gt;</span><span class="cp"></span>
+
+<span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="k">const</span> <span class="n">usage_msg</span> <span class="o">=</span> <span class="s">&quot;usage: ./bidding_system [host_num] [player_num]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="k">const</span> <span class="n">read_fifo_name</span> <span class="o">=</span> <span class="s">&quot;Host.FIFO&quot;</span><span class="p">;</span>
+
+<span class="cp">#define HOST_NUM_MAX 10</span>
+<span class="cp">#define PLAYER_NUM_MAX 14</span>
+<span class="cp">#define FIFO_NAME_MAX 128</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="kt">pid_t</span> <span class="n">pid</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">fd</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">random_key</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">fifo_name</span><span class="p">[</span><span class="n">FIFO_NAME_MAX</span><span class="p">];</span>
+<span class="p">}</span> <span class="n">RootHost</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">ERR_EXIT</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">msg</span><span class="p">)</span> <span class="p">{</span> <span class="n">perror</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span> <span class="n">exit</span><span class="p">(</span><span class="mi">128</span><span class="p">);</span> <span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">flush_fsync</span><span class="p">(</span><span class="kt">FILE</span> <span class="o">*</span><span class="n">stream</span><span class="p">)</span> <span class="p">{</span> <span class="n">fflush</span><span class="p">(</span><span class="n">stream</span><span class="p">);</span> <span class="n">fsync</span><span class="p">(</span><span class="n">fileno</span><span class="p">(</span><span class="n">stream</span><span class="p">));</span> <span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">rank_to_score</span><span class="p">(</span><span class="kt">int</span> <span class="n">rank</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">8</span> <span class="o">-</span> <span class="n">rank</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">next_subset</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">[]);</span>
+
+<span class="kt">void</span> <span class="nf">create_fifo</span><span class="p">(</span><span class="n">RootHost</span> <span class="n">root_host_list</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">host_num</span><span class="p">);</span>
+
+<span class="kt">void</span> <span class="nf">fork_root_hosts</span><span class="p">(</span><span class="n">RootHost</span> <span class="n">root_host_list</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">host_num</span><span class="p">);</span>
+
+<span class="kt">void</span> <span class="nf">assign_competition</span><span class="p">(</span><span class="n">RootHost</span> <span class="o">*</span><span class="n">root_host</span><span class="p">,</span> <span class="kt">int</span> <span class="n">set</span><span class="p">[]);</span>
+
+<span class="kt">void</span> <span class="nf">output_rank</span><span class="p">(</span><span class="kt">int</span> <span class="n">player_num</span><span class="p">,</span> <span class="kt">int</span> <span class="n">player_score</span><span class="p">[]);</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">argc</span> <span class="o">!=</span> <span class="mi">3</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// the number of arguments should be exactly 2</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="n">usage_msg</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kt">int</span> <span class="n">host_num</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>  <span class="c1">// 1 &lt;= x &lt;= 10</span>
+    <span class="kt">int</span> <span class="n">player_num</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>  <span class="c1">// 8 &lt;= x &lt;= 14</span>
+
+    <span class="kt">FILE</span> <span class="o">*</span><span class="n">read_fifo</span><span class="p">;</span>
+    <span class="n">RootHost</span> <span class="n">root_host_list</span><span class="p">[</span><span class="n">HOST_NUM_MAX</span> <span class="o">+</span> <span class="mi">5</span><span class="p">];</span>
+    <span class="n">create_fifo</span><span class="p">(</span><span class="n">root_host_list</span><span class="p">,</span> <span class="n">host_num</span><span class="p">);</span>
+
+    <span class="c1">// fork root hosts</span>
+    <span class="n">fork_root_hosts</span><span class="p">(</span><span class="n">root_host_list</span><span class="p">,</span> <span class="n">host_num</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="n">read_fifo</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">read_fifo_name</span><span class="p">,</span> <span class="s">&quot;rt&quot;</span><span class="p">))</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="p">)</span>
+        <span class="n">ERR_EXIT</span><span class="p">(</span><span class="s">&quot;fopen&quot;</span><span class="p">);</span>
+    <span class="n">unlink</span><span class="p">(</span><span class="n">read_fifo_name</span><span class="p">);</span>
+
+    <span class="c1">// assign every hosts a competition</span>
+    <span class="kt">int</span> <span class="n">set</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">};</span>
+    <span class="kt">int</span> <span class="n">active_host_num</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">host_num</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">next_subset</span><span class="p">(</span><span class="n">player_num</span><span class="p">,</span> <span class="n">set</span><span class="p">))</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="n">assign_competition</span><span class="p">(</span><span class="o">&amp;</span><span class="n">root_host_list</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">set</span><span class="p">);</span>
+            <span class="n">active_host_num</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kt">int</span> <span class="n">player_score</span><span class="p">[</span><span class="n">PLAYER_NUM_MAX</span> <span class="o">+</span> <span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+
+    <span class="k">while</span> <span class="p">(</span> <span class="n">active_host_num</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">key</span><span class="p">;</span>
+        <span class="n">fscanf</span><span class="p">(</span><span class="n">read_fifo</span><span class="p">,</span> <span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">key</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">id</span><span class="p">,</span> <span class="n">rank</span><span class="p">;</span>
+            <span class="n">fscanf</span><span class="p">(</span><span class="n">read_fifo</span><span class="p">,</span> <span class="s">&quot;%d %d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">id</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">rank</span><span class="p">);</span>
+            <span class="n">player_score</span><span class="p">[</span><span class="n">id</span><span class="p">]</span> <span class="o">+=</span> <span class="n">rank_to_score</span><span class="p">(</span><span class="n">rank</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">host_num</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="n">root_host_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">random_key</span> <span class="o">==</span> <span class="n">key</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span> <span class="n">next_subset</span><span class="p">(</span><span class="n">player_num</span><span class="p">,</span> <span class="n">set</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+                    <span class="n">assign_competition</span><span class="p">(</span><span class="o">&amp;</span><span class="n">root_host_list</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">set</span><span class="p">);</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="n">active_host_num</span><span class="o">--</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">host_num</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">char</span> <span class="o">*</span><span class="n">msg</span> <span class="o">=</span> <span class="s">&quot;-1 -1 -1 -1 -1 -1 -1 -1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+        <span class="n">write</span><span class="p">(</span><span class="n">root_host_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">fd</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">msg</span><span class="p">));</span>
+        <span class="n">fsync</span><span class="p">(</span><span class="n">root_host_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">fd</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">host_num</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">term_status</span><span class="p">;</span>
+        <span class="n">waitpid</span><span class="p">(</span><span class="n">root_host_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">pid</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">term_status</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">close</span><span class="p">(</span><span class="n">root_host_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">fd</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="p">)</span>
+            <span class="n">ERR_EXIT</span><span class="p">(</span><span class="s">&quot;close&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">output_rank</span><span class="p">(</span><span class="n">player_num</span><span class="p">,</span> <span class="n">player_score</span><span class="p">);</span>
+
+    <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">create_fifo</span><span class="p">(</span><span class="n">RootHost</span> <span class="n">root_host_list</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">host_num</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">mkfifo</span><span class="p">(</span><span class="n">read_fifo_name</span><span class="p">,</span> <span class="mo">0600</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">)</span>
+        <span class="n">ERR_EXIT</span><span class="p">(</span><span class="s">&quot;mkfifo&quot;</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">host_num</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">snprintf</span><span class="p">(</span><span class="n">root_host_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">fifo_name</span><span class="p">,</span> <span class="n">FIFO_NAME_MAX</span><span class="p">,</span> <span class="s">&quot;Host%d.FIFO&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">mkfifo</span><span class="p">(</span><span class="n">root_host_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">fifo_name</span><span class="p">,</span> <span class="mo">0600</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">)</span>
+            <span class="n">ERR_EXIT</span><span class="p">(</span><span class="s">&quot;mkfifo&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cp">#define KEY_MAX 65536</span>
+<span class="kt">void</span> <span class="nf">fork_root_hosts</span><span class="p">(</span><span class="n">RootHost</span> <span class="n">root_host_list</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">host_num</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">used</span><span class="p">[</span><span class="n">KEY_MAX</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+    <span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+    <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">host_num</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">do</span> <span class="p">{</span>
+            <span class="n">root_host_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">random_key</span> <span class="o">=</span> <span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="n">KEY_MAX</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">while</span> <span class="p">(</span> <span class="n">used</span><span class="p">[</span><span class="n">root_host_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">random_key</span><span class="p">]</span> <span class="p">);</span>
+
+        <span class="n">used</span><span class="p">[</span><span class="n">root_host_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">random_key</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+        <span class="n">root_host_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">pid</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">root_host_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">pid</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="n">ERR_EXIT</span><span class="p">(</span><span class="s">&quot;fork&quot;</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="n">root_host_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">pid</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="kt">char</span> <span class="n">host_id_str</span><span class="p">[</span><span class="mi">32</span><span class="p">],</span> <span class="n">random_key_str</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
+            <span class="n">snprintf</span><span class="p">(</span><span class="n">host_id_str</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+            <span class="n">snprintf</span><span class="p">(</span><span class="n">random_key_str</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="n">root_host_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">random_key</span><span class="p">);</span>
+            <span class="n">execl</span><span class="p">(</span><span class="s">&quot;./host&quot;</span><span class="p">,</span> <span class="s">&quot;host&quot;</span><span class="p">,</span> <span class="n">host_id_str</span><span class="p">,</span> <span class="n">random_key_str</span><span class="p">,</span> <span class="s">&quot;0&quot;</span><span class="p">,</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="n">root_host_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">fd</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="n">root_host_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">fifo_name</span><span class="p">,</span> <span class="n">O_WRONLY</span><span class="p">))</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="p">)</span>
+                <span class="n">ERR_EXIT</span><span class="p">(</span><span class="s">&quot;open&quot;</span><span class="p">);</span>
+            <span class="n">unlink</span><span class="p">(</span><span class="n">root_host_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">fifo_name</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">assign_competition</span><span class="p">(</span><span class="n">RootHost</span> <span class="o">*</span><span class="n">root_host</span><span class="p">,</span> <span class="kt">int</span> <span class="n">set</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="n">set_str</span><span class="p">[</span><span class="n">BUFSIZ</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">snprintf</span><span class="p">(</span><span class="n">set_str</span><span class="p">,</span> <span class="n">BUFSIZ</span><span class="p">,</span> <span class="s">&quot;%d %d %d %d %d %d %d %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> 
+                       <span class="n">set</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">set</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">set</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">set</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">set</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">set</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">set</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">set</span><span class="p">[</span><span class="mi">7</span><span class="p">]);</span>
+    <span class="n">write</span><span class="p">(</span><span class="n">root_host</span><span class="o">-&gt;</span><span class="n">fd</span><span class="p">,</span> <span class="n">set_str</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+    <span class="n">fsync</span><span class="p">(</span><span class="n">root_host</span><span class="o">-&gt;</span><span class="n">fd</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">next_subset</span><span class="p">(</span><span class="kt">int</span> <span class="n">player_num</span><span class="p">,</span> <span class="kt">int</span> <span class="n">set</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">set</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="mi">7</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">player_num</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="n">set</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+            <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="mi">7</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+                <span class="n">set</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">set</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">cmp</span><span class="p">(</span><span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="o">**</span><span class="p">(</span><span class="kt">int</span><span class="o">**</span><span class="p">)</span><span class="n">a</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="o">**</span><span class="p">(</span><span class="kt">int</span><span class="o">**</span><span class="p">)</span><span class="n">b</span><span class="p">;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">output_rank</span><span class="p">(</span><span class="kt">int</span> <span class="n">player_num</span><span class="p">,</span> <span class="kt">int</span> <span class="n">player_score</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="o">*</span><span class="n">ptr</span><span class="p">[</span><span class="n">PLAYER_NUM_MAX</span> <span class="o">+</span> <span class="mi">5</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">player_num</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">ptr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">player_score</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="n">qsort</span><span class="p">(</span><span class="n">ptr</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">player_num</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">),</span> <span class="n">cmp</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">rank</span><span class="p">[</span><span class="n">PLAYER_NUM_MAX</span> <span class="o">+</span> <span class="mi">5</span><span class="p">];</span>
+    <span class="n">rank</span><span class="p">[</span><span class="n">ptr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">player_score</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">player_num</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">rank</span><span class="p">[</span><span class="n">ptr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">player_score</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="n">ptr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="o">*</span><span class="n">ptr</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">?</span> <span class="n">rank</span><span class="p">[</span><span class="n">ptr</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">player_score</span><span class="p">]</span> <span class="o">:</span> <span class="n">i</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">player_num</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">rank</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+
+<h2 id="hostc">host.c<a class="headerlink" href="#hostc" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;fcntl.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;sys/wait.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;sys/stat.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;sys/types.h&gt;</span><span class="cp"></span>
+
+<span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="k">const</span> <span class="n">usage_msg</span> <span class="o">=</span> <span class="s">&quot;usage: ./host [host_id] [random_key] [depth]&quot;</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="k">const</span> <span class="n">write_fifo_name</span> <span class="o">=</span> <span class="s">&quot;Host.FIFO&quot;</span><span class="p">;</span>
+
+<span class="cp">#define FIFO_NAME_MAX 128</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">ROOT_HOST_DEP</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">CHILD_HOST_DEP</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">LEAF_HOST_DEP</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">ROUND_NUM</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">player_id</span><span class="p">,</span> <span class="n">score</span><span class="p">,</span> <span class="n">rank</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">PlayerRecord</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="kt">pid_t</span> <span class="n">pid</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">wr_pipe_fd</span><span class="p">,</span> <span class="n">rd_pipe_fd</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">Child</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">ERR_EXIT</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">msg</span><span class="p">)</span> <span class="p">{</span> <span class="n">perror</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span> <span class="n">exit</span><span class="p">(</span><span class="mi">128</span><span class="p">);</span> <span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">flush_fsync</span><span class="p">(</span><span class="kt">FILE</span> <span class="o">*</span><span class="n">stream</span><span class="p">)</span> <span class="p">{</span> <span class="n">fflush</span><span class="p">(</span><span class="n">stream</span><span class="p">);</span> <span class="n">fsync</span><span class="p">(</span><span class="n">fileno</span><span class="p">(</span><span class="n">stream</span><span class="p">));</span> <span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">read_player_id</span><span class="p">(</span><span class="kt">int</span> <span class="n">player_id_list</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">fd</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="nf">sublist</span><span class="p">(</span><span class="kt">int</span> <span class="n">list</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">L</span><span class="p">,</span> <span class="kt">int</span> <span class="n">R</span><span class="p">,</span> <span class="kt">char</span> <span class="n">buf</span><span class="p">[]);</span>
+
+<span class="kt">void</span> <span class="nf">fork_child</span><span class="p">(</span><span class="n">Child</span> <span class="n">child_list</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">player_id_list</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">depth</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[]);</span>
+
+<span class="kt">void</span> <span class="nf">run_game</span><span class="p">(</span><span class="n">Child</span> <span class="n">child_list</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">depth</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">extra</span><span class="p">);</span>
+
+<span class="kt">void</span> <span class="nf">calc_rank</span><span class="p">(</span><span class="n">PlayerRecord</span> <span class="n">player_record_list</span><span class="p">[]);</span>
+
+<span class="kt">void</span> <span class="nf">clean_child</span><span class="p">(</span><span class="n">Child</span> <span class="n">child_host_list</span><span class="p">[]);</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">argc</span> <span class="o">!=</span> <span class="mi">4</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// the number of arguments should be exactly 3</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="n">usage_msg</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kt">int</span> <span class="n">host_id</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+    <span class="kt">int</span> <span class="n">random_key</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+    <span class="kt">int</span> <span class="n">depth</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+
+    <span class="k">if</span> <span class="p">(</span> <span class="n">depth</span> <span class="o">==</span> <span class="n">ROOT_HOST_DEP</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// fifo for read from bidding system</span>
+        <span class="kt">char</span> <span class="n">fifo_path</span><span class="p">[</span><span class="n">FIFO_NAME_MAX</span><span class="p">];</span>
+        <span class="n">snprintf</span><span class="p">(</span><span class="n">fifo_path</span><span class="p">,</span> <span class="n">FIFO_NAME_MAX</span><span class="p">,</span> <span class="s">&quot;Host%d.FIFO&quot;</span><span class="p">,</span> <span class="n">host_id</span><span class="p">);</span>
+        <span class="kt">int</span> <span class="n">read_fifo_fd</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="n">fifo_path</span><span class="p">,</span> <span class="n">O_RDONLY</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">read_fifo_fd</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="p">)</span>
+            <span class="n">ERR_EXIT</span><span class="p">(</span><span class="s">&quot;open&quot;</span><span class="p">);</span>
+
+        <span class="c1">// fifo for write to bidding system</span>
+        <span class="kt">int</span> <span class="n">write_fifo_fd</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="n">write_fifo_name</span><span class="p">,</span> <span class="n">O_WRONLY</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">write_fifo_fd</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="p">)</span>
+            <span class="n">ERR_EXIT</span><span class="p">(</span><span class="s">&quot;open&quot;</span><span class="p">);</span>
+
+        <span class="c1">// fork 2 child hosts</span>
+        <span class="n">Child</span> <span class="n">child_host_list</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+        <span class="n">fork_child</span><span class="p">(</span><span class="n">child_host_list</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+
+        <span class="k">while</span> <span class="p">(</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">player_id_list</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span>
+            <span class="n">read_player_id</span><span class="p">(</span><span class="n">player_id_list</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">read_fifo_fd</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="n">player_id_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="kt">char</span> <span class="o">*</span><span class="n">msg</span> <span class="o">=</span> <span class="s">&quot;-1 -1 -1 -1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+                    <span class="n">write</span><span class="p">(</span><span class="n">child_host_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">wr_pipe_fd</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">msg</span><span class="p">));</span>
+                    <span class="n">fsync</span><span class="p">(</span><span class="n">child_host_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">wr_pipe_fd</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="c1">// assign players to 2 child hosts</span>
+            <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="n">BUFSIZ</span><span class="p">];</span>
+                <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">sublist</span><span class="p">(</span><span class="n">player_id_list</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="p">(</span><span class="mi">4</span> <span class="o">&gt;&gt;</span> <span class="n">depth</span><span class="p">),</span> <span class="n">i</span> <span class="o">*</span> <span class="p">(</span><span class="mi">4</span> <span class="o">&gt;&gt;</span> <span class="n">depth</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">4</span> <span class="o">&gt;&gt;</span> <span class="n">depth</span><span class="p">),</span> <span class="n">buf</span><span class="p">);</span>
+                <span class="n">write</span><span class="p">(</span><span class="n">child_host_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">wr_pipe_fd</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+                <span class="n">fsync</span><span class="p">(</span><span class="n">child_host_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">wr_pipe_fd</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="c1">// init player record</span>
+            <span class="n">PlayerRecord</span> <span class="n">player_record_list</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span>
+            <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">player_record_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">player_id</span> <span class="o">=</span> <span class="n">player_id_list</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+                <span class="n">player_record_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">score</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">run_game</span><span class="p">(</span><span class="n">child_host_list</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">player_record_list</span><span class="p">);</span>
+
+            <span class="n">calc_rank</span><span class="p">(</span><span class="n">player_record_list</span><span class="p">);</span>
+
+            <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="n">BUFSIZ</span><span class="p">];</span>
+            <span class="kt">char</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="n">buf</span><span class="p">;</span>
+            <span class="n">p</span> <span class="o">+=</span> <span class="n">snprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">BUFSIZ</span><span class="p">,</span> <span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">random_key</span><span class="p">);</span>
+            <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">p</span> <span class="o">+=</span> <span class="n">snprintf</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">BUFSIZ</span><span class="p">,</span> <span class="s">&quot;%d %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">player_record_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">player_id</span><span class="p">,</span> <span class="n">player_record_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">rank</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">write</span><span class="p">(</span><span class="n">write_fifo_fd</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">buf</span><span class="p">));</span>
+            <span class="n">fsync</span><span class="p">(</span><span class="n">write_fifo_fd</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="n">clean_child</span><span class="p">(</span><span class="n">child_host_list</span><span class="p">);</span>
+
+        <span class="n">close</span><span class="p">(</span><span class="n">read_fifo_fd</span><span class="p">);</span>
+        <span class="n">close</span><span class="p">(</span><span class="n">write_fifo_fd</span><span class="p">);</span>
+
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="n">depth</span> <span class="o">==</span> <span class="n">CHILD_HOST_DEP</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="n">Child</span> <span class="n">leaf_host_list</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+        <span class="n">fork_child</span><span class="p">(</span><span class="n">leaf_host_list</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+
+        <span class="k">while</span> <span class="p">(</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">player_id_list</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+            <span class="n">read_player_id</span><span class="p">(</span><span class="n">player_id_list</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">STDIN_FILENO</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="n">player_id_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="kt">char</span> <span class="o">*</span><span class="n">msg</span> <span class="o">=</span> <span class="s">&quot;-1 -1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+                    <span class="n">write</span><span class="p">(</span><span class="n">leaf_host_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">wr_pipe_fd</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">msg</span><span class="p">));</span>
+                    <span class="n">fsync</span><span class="p">(</span><span class="n">leaf_host_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">wr_pipe_fd</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="n">BUFSIZ</span><span class="p">];</span>
+                <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">sublist</span><span class="p">(</span><span class="n">player_id_list</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="p">(</span><span class="mi">4</span> <span class="o">&gt;&gt;</span> <span class="n">depth</span><span class="p">),</span> <span class="n">i</span> <span class="o">*</span> <span class="p">(</span><span class="mi">4</span> <span class="o">&gt;&gt;</span> <span class="n">depth</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">4</span> <span class="o">&gt;&gt;</span> <span class="n">depth</span><span class="p">),</span> <span class="n">buf</span><span class="p">);</span>
+                <span class="n">write</span><span class="p">(</span><span class="n">leaf_host_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">wr_pipe_fd</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+                <span class="n">fsync</span><span class="p">(</span><span class="n">leaf_host_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">wr_pipe_fd</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="n">run_game</span><span class="p">(</span><span class="n">leaf_host_list</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="n">clean_child</span><span class="p">(</span><span class="n">leaf_host_list</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="n">depth</span> <span class="o">==</span> <span class="n">LEAF_HOST_DEP</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">while</span> <span class="p">(</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">player_id_list</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+            <span class="n">read_player_id</span><span class="p">(</span><span class="n">player_id_list</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">STDIN_FILENO</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="n">player_id_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="n">Child</span> <span class="n">player_list</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+
+            <span class="n">fork_child</span><span class="p">(</span><span class="n">player_list</span><span class="p">,</span> <span class="n">player_id_list</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+
+            <span class="n">run_game</span><span class="p">(</span><span class="n">player_list</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+
+            <span class="n">clean_child</span><span class="p">(</span><span class="n">player_list</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">EXIT_SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">read_player_id</span><span class="p">(</span><span class="kt">int</span> <span class="n">player_id_list</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">fd</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="n">BUFSIZ</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="n">buf</span><span class="p">;</span>
+    <span class="n">read</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">BUFSIZ</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">player_id_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">strtol</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">p</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">sublist</span><span class="p">(</span><span class="kt">int</span> <span class="n">list</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">L</span><span class="p">,</span> <span class="kt">int</span> <span class="n">R</span><span class="p">,</span> <span class="kt">char</span> <span class="n">buf</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="n">buf</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">L</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">R</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">ptr</span> <span class="o">+=</span> <span class="n">snprintf</span><span class="p">(</span><span class="n">ptr</span><span class="p">,</span> <span class="n">BUFSIZ</span><span class="p">,</span> <span class="s">&quot;%d%c&quot;</span><span class="p">,</span> <span class="n">list</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s">&quot; </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">[</span><span class="n">i</span><span class="o">==</span><span class="n">R</span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">ptr</span> <span class="o">-</span> <span class="n">buf</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">fork_child</span><span class="p">(</span><span class="n">Child</span> <span class="n">child_list</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">player_id_list</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">depth</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// pipe</span>
+        <span class="kt">int</span> <span class="n">pfd</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">];</span>
+        <span class="kt">int</span> <span class="n">pip_res1</span> <span class="o">=</span> <span class="n">pipe</span><span class="p">(</span><span class="n">pfd</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>  <span class="c1">// parent read, child write</span>
+        <span class="kt">int</span> <span class="n">pip_res2</span> <span class="o">=</span> <span class="n">pipe</span><span class="p">(</span><span class="n">pfd</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>  <span class="c1">// parent write, child read</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">pip_res1</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">||</span> <span class="n">pip_res2</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="p">)</span>
+            <span class="n">ERR_EXIT</span><span class="p">(</span><span class="s">&quot;pipe&quot;</span><span class="p">);</span>
+
+        <span class="c1">// fork</span>
+        <span class="n">child_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">pid</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">child_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">pid</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="n">ERR_EXIT</span><span class="p">(</span><span class="s">&quot;fork&quot;</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="n">child_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">pid</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// child</span>
+            <span class="n">close</span><span class="p">(</span><span class="n">pfd</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]);</span>
+            <span class="n">dup2</span><span class="p">(</span><span class="n">pfd</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">);</span>
+            <span class="n">close</span><span class="p">(</span><span class="n">pfd</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span>
+
+            <span class="n">close</span><span class="p">(</span><span class="n">pfd</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span>
+            <span class="n">dup2</span><span class="p">(</span><span class="n">pfd</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">);</span>
+            <span class="n">close</span><span class="p">(</span><span class="n">pfd</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]);</span>
+
+            <span class="k">if</span> <span class="p">(</span> <span class="n">depth</span> <span class="o">!=</span> <span class="n">LEAF_HOST_DEP</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="kt">char</span> <span class="n">next_dep</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+                <span class="n">snprintf</span><span class="p">(</span><span class="n">next_dep</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+                <span class="n">execl</span><span class="p">(</span><span class="s">&quot;./host&quot;</span><span class="p">,</span> <span class="s">&quot;host&quot;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">next_dep</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+                <span class="n">snprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="n">player_id_list</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+                <span class="n">execl</span><span class="p">(</span><span class="s">&quot;./player&quot;</span><span class="p">,</span> <span class="s">&quot;player&quot;</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+            <span class="p">}</span>
+
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">// parent</span>
+            <span class="n">close</span><span class="p">(</span><span class="n">pfd</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span>
+            <span class="n">child_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">rd_pipe_fd</span> <span class="o">=</span> <span class="n">pfd</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
+
+            <span class="n">close</span><span class="p">(</span><span class="n">pfd</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]);</span>
+            <span class="n">child_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">wr_pipe_fd</span> <span class="o">=</span> <span class="n">pfd</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">run_game</span><span class="p">(</span><span class="n">Child</span> <span class="n">child_list</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">depth</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">extra</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">PlayerRecord</span> <span class="o">*</span><span class="n">player_record_list</span> <span class="o">=</span> <span class="p">(</span><span class="n">PlayerRecord</span><span class="o">*</span><span class="p">)</span><span class="n">extra</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">id_2_idx</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">depth</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">id_2_idx</span><span class="p">[</span> <span class="n">player_record_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">player_id</span> <span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">round</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">round</span> <span class="o">&lt;=</span> <span class="n">ROUND_NUM</span><span class="p">;</span> <span class="n">round</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// read result from two child hosts</span>
+        <span class="kt">int</span> <span class="n">player_id</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">money</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+        <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="n">BUFSIZ</span><span class="p">];</span>
+        <span class="n">read</span><span class="p">(</span><span class="n">child_list</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">rd_pipe_fd</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">BUFSIZ</span><span class="p">);</span>
+        <span class="n">sscanf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="s">&quot;%d %d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">player_id</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">money</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+
+        <span class="n">read</span><span class="p">(</span><span class="n">child_list</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">rd_pipe_fd</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">BUFSIZ</span><span class="p">);</span>
+        <span class="n">sscanf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="s">&quot;%d %d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">player_id</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">money</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+        <span class="c1">// compare two results</span>
+        <span class="kt">int</span> <span class="n">winner_id</span><span class="p">,</span> <span class="n">win_money</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">money</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">money</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="n">winner_id</span> <span class="o">=</span> <span class="n">player_id</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+            <span class="n">win_money</span> <span class="o">=</span> <span class="n">money</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">winner_id</span> <span class="o">=</span> <span class="n">player_id</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+            <span class="n">win_money</span> <span class="o">=</span> <span class="n">money</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="n">depth</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// if dep == 0: update player score and write winner to 2 child</span>
+            <span class="o">++</span><span class="n">player_record_list</span><span class="p">[</span> <span class="n">id_2_idx</span><span class="p">[</span><span class="n">winner_id</span><span class="p">]</span> <span class="p">].</span><span class="n">score</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="n">round</span> <span class="o">!=</span> <span class="n">ROUND_NUM</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">sprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">winner_id</span><span class="p">);</span>
+                    <span class="n">write</span><span class="p">(</span><span class="n">child_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">wr_pipe_fd</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+                    <span class="n">fsync</span><span class="p">(</span><span class="n">child_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">wr_pipe_fd</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">// if dep &gt; 0: write winner, money to stdout and read final winner from stdin and write final winner to 2 child</span>
+            <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">sprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="s">&quot;%d %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">winner_id</span><span class="p">,</span> <span class="n">win_money</span><span class="p">);</span>
+            <span class="n">write</span><span class="p">(</span><span class="n">STDOUT_FILENO</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+            <span class="n">fsync</span><span class="p">(</span><span class="n">STDOUT_FILENO</span><span class="p">);</span>
+
+            <span class="k">if</span> <span class="p">(</span> <span class="n">round</span> <span class="o">!=</span> <span class="n">ROUND_NUM</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">STDIN_FILENO</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">BUFSIZ</span><span class="p">);</span>
+                <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">write</span><span class="p">(</span><span class="n">child_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">wr_pipe_fd</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+                    <span class="n">fsync</span><span class="p">(</span><span class="n">child_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">wr_pipe_fd</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">cmp</span><span class="p">(</span><span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">PlayerRecord</span><span class="o">**</span><span class="p">)</span><span class="n">a</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">score</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">PlayerRecord</span><span class="o">**</span><span class="p">)</span><span class="n">b</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">score</span><span class="p">;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">calc_rank</span><span class="p">(</span><span class="n">PlayerRecord</span> <span class="n">player_record_list</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="n">PlayerRecord</span><span class="o">*</span> <span class="n">ptr</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">ptr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">player_record_list</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="n">qsort</span><span class="p">(</span><span class="n">ptr</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">PlayerRecord</span><span class="o">*</span><span class="p">),</span> <span class="n">cmp</span><span class="p">);</span>
+    <span class="n">ptr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">rank</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">ptr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">rank</span> <span class="o">=</span> <span class="p">(</span><span class="n">ptr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">score</span> <span class="o">==</span> <span class="n">ptr</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">score</span><span class="p">)</span> <span class="o">?</span> <span class="n">ptr</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-&gt;</span><span class="nl">rank</span> <span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">clean_child</span><span class="p">(</span><span class="n">Child</span> <span class="n">child_list</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>        
+        <span class="kt">int</span> <span class="n">status</span><span class="p">;</span>
+        <span class="n">waitpid</span><span class="p">(</span><span class="n">child_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">pid</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">status</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+        <span class="n">close</span><span class="p">(</span><span class="n">child_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">rd_pipe_fd</span><span class="p">);</span>
+        <span class="n">close</span><span class="p">(</span><span class="n">child_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">wr_pipe_fd</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<h2 id="playerc">player.c<a class="headerlink" href="#playerc" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="k">const</span> <span class="n">usage_msg</span> <span class="o">=</span> <span class="s">&quot;usage: ./player [player_id]&quot;</span><span class="p">;</span>
+
+<span class="k">const</span> <span class="kt">int</span> <span class="n">ROUND_NUM</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">ERR_EXIT</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">msg</span><span class="p">)</span> <span class="p">{</span> <span class="n">perror</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span> <span class="n">exit</span><span class="p">(</span><span class="mi">128</span><span class="p">);</span> <span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">flush_fsync</span><span class="p">(</span><span class="kt">FILE</span> <span class="o">*</span><span class="n">stream</span><span class="p">)</span> <span class="p">{</span> <span class="n">fflush</span><span class="p">(</span><span class="n">stream</span><span class="p">);</span> <span class="n">fsync</span><span class="p">(</span><span class="n">fileno</span><span class="p">(</span><span class="n">stream</span><span class="p">));</span> <span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">read_winner_id</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">winner_id</span><span class="p">;</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">winner_id</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">tell_host_money</span><span class="p">(</span><span class="kt">int</span> <span class="n">player_id</span><span class="p">,</span> <span class="kt">int</span> <span class="n">money</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">player_id</span><span class="p">,</span> <span class="n">money</span><span class="p">);</span>
+    <span class="n">flush_fsync</span><span class="p">(</span><span class="n">stdout</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">argc</span> <span class="o">!=</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// the number of arguments should be exactly 1</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="n">usage_msg</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">player_id</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">money</span> <span class="o">=</span> <span class="n">player_id</span> <span class="o">*</span> <span class="mi">100</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">round</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">round</span> <span class="o">&lt;=</span> <span class="n">ROUND_NUM</span><span class="p">;</span> <span class="o">++</span><span class="n">round</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">round</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="p">)</span>
+            <span class="n">read_winner_id</span><span class="p">();</span>
+
+        <span class="n">tell_host_money</span><span class="p">(</span><span class="n">player_id</span><span class="p">,</span> <span class="n">money</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">EXIT_SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/kaienlin" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.808e90bb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
