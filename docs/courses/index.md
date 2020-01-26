@@ -7,5 +7,4 @@
 
 ## Spring, 2019
 
-+ [Data Structures and Algorithms](./dsa-spring-2019/index.md)
 + [Network Administration and System Administration](./nasa-spring-2019/index.md)
