@@ -400,9 +400,7 @@
                 
                 <h1 id="depth-first-search">Depth First Search<a class="headerlink" href="#depth-first-search" title="Permanent link">&para;</a></h1>
 <h2 id="basic-dfs">Basic DFS<a class="headerlink" href="#basic-dfs" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="k">constexpr</span> <span class="kt">int</span> <span class="n">MAXN</span> <span class="o">=</span> <span class="mf">1e3</span><span class="o">+</span><span class="mi">5</span><span class="p">;</span>
-
-<span class="kt">int</span> <span class="n">N</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">N</span><span class="p">;</span>
 <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">G</span><span class="p">[</span><span class="n">MAXN</span><span class="p">];</span>
 <span class="kt">int</span> <span class="n">color</span><span class="p">[</span><span class="n">MAXN</span><span class="p">],</span> <span class="n">tin</span><span class="p">[</span><span class="n">MAXN</span><span class="p">],</span> <span class="n">tout</span><span class="p">[</span><span class="n">MAXN</span><span class="p">],</span> <span class="n">timer</span><span class="p">;</span>
 
@@ -411,11 +409,13 @@
 <span class="kt">void</span> <span class="nf">is_back_edge</span><span class="p">(</span><span class="kt">int</span> <span class="n">from</span><span class="p">,</span> <span class="kt">int</span> <span class="n">to</span><span class="p">)</span> <span class="p">{}</span>
 <span class="kt">void</span> <span class="nf">is_cross_edge</span><span class="p">(</span><span class="kt">int</span> <span class="n">from</span><span class="p">,</span> <span class="kt">int</span> <span class="n">to</span><span class="p">)</span> <span class="p">{}</span>
 
-<span class="kt">bool</span> <span class="nf">is_ancestor</span><span class="p">(</span><span class="kt">int</span> <span class="n">anc</span><span class="p">,</span> <span class="kt">int</span> <span class="n">des</span><span class="p">)</span> <span class="p">{</span>
+<span class="kt">bool</span> <span class="nf">is_ancestor</span><span class="p">(</span><span class="kt">int</span> <span class="n">anc</span><span class="p">,</span> <span class="kt">int</span> <span class="n">des</span><span class="p">)</span>
+<span class="p">{</span>
     <span class="k">return</span> <span class="n">tin</span><span class="p">[</span><span class="n">anc</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">tin</span><span class="p">[</span><span class="n">des</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">tout</span><span class="p">[</span><span class="n">anc</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">tout</span><span class="p">[</span><span class="n">des</span><span class="p">];</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">dfs_util</span><span class="p">(</span><span class="kt">int</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+<span class="kt">void</span> <span class="nf">dfs_util</span><span class="p">(</span><span class="kt">int</span> <span class="n">v</span><span class="p">)</span>
+<span class="p">{</span>
     <span class="n">color</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">GREY</span><span class="p">;</span>
     <span class="n">tin</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">timer</span><span class="o">++</span><span class="p">;</span>
     <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="nl">u</span> <span class="p">:</span> <span class="n">G</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="p">)</span> <span class="p">{</span>
@@ -430,7 +430,8 @@
     <span class="n">tout</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">timer</span><span class="o">++</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">dfs</span><span class="p">()</span> <span class="p">{</span>
+<span class="kt">void</span> <span class="nf">dfs</span><span class="p">()</span>
+<span class="p">{</span>
     <span class="n">fill</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">color</span> <span class="o">+</span> <span class="n">N</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">);</span>
     <span class="n">timer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
@@ -440,7 +441,63 @@
 </pre></div>
 
 <h2 id="topological-sort">Topological Sort<a class="headerlink" href="#topological-sort" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">N</span><span class="p">;</span>
+
+<span class="kt">bool</span> <span class="nf">topo_cmp</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="cm">/* tout[] is obtained by basic dfs */</span>
+    <span class="k">return</span> <span class="n">tout</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">tout</span><span class="p">[</span><span class="n">b</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">topo_sort</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">topo</span><span class="p">(</span><span class="n">N</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span>
+        <span class="n">topo</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+
+    <span class="c1">// sort the vertices by descending order of the &quot;end time&quot; in DFS</span>
+    <span class="n">sort</span><span class="p">(</span><span class="n">topo</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">topo</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">topo_cmp</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">topo</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
 <h2 id="find-bridge">Find bridge<a class="headerlink" href="#find-bridge" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">N</span><span class="p">;</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">G</span><span class="p">[</span><span class="n">MAXN</span><span class="p">];</span>  <span class="c1">// an &quot;undirected graph&quot;</span>
+
+<span class="kt">int</span> <span class="n">timer</span><span class="p">,</span> <span class="n">tin</span><span class="p">[</span><span class="n">MAXN</span><span class="p">],</span> <span class="n">low</span><span class="p">[</span><span class="n">MAXN</span><span class="p">];</span>
+<span class="kt">bool</span> <span class="n">vis</span><span class="p">[</span><span class="n">MAXN</span><span class="p">];</span>
+
+<span class="kt">void</span> <span class="nf">is_bridge</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span> <span class="kt">int</span> <span class="n">v</span><span class="p">)</span> <span class="p">{}</span>
+
+<span class="kt">void</span> <span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span> <span class="n">v</span><span class="p">,</span> <span class="kt">int</span> <span class="n">parent</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">vis</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">tin</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">low</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">timer</span><span class="o">++</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="nl">to</span> <span class="p">:</span> <span class="n">G</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">to</span> <span class="o">==</span> <span class="n">parent</span> <span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">vis</span><span class="p">[</span><span class="n">to</span><span class="p">]</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// back edge</span>
+            <span class="n">low</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">low</span><span class="p">[</span><span class="n">v</span><span class="p">],</span> <span class="n">tin</span><span class="p">[</span><span class="n">to</span><span class="p">]);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">// tree edge</span>
+            <span class="n">dfs</span><span class="p">(</span><span class="n">to</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
+            <span class="n">low</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">low</span><span class="p">[</span><span class="n">v</span><span class="p">],</span> <span class="n">low</span><span class="p">[</span><span class="n">to</span><span class="p">]);</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="n">low</span><span class="p">[</span><span class="n">to</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">tin</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="p">)</span>
+                <span class="n">is_bridge</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">to</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">find_bridges</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">timer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">fill</span><span class="p">(</span><span class="n">vis</span><span class="p">,</span> <span class="n">vis</span><span class="o">+</span><span class="n">N</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="n">vis</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
+            <span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
                 
                   
                 
