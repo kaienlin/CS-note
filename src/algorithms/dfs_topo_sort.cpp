@@ -1,5 +1,3 @@
-int N;
-
 bool topo_cmp(const int a, const int b)
 {
     /* tout[] is obtained by basic dfs */
@@ -8,6 +6,7 @@ bool topo_cmp(const int a, const int b)
 
 vector<int> topo_sort()
 {
+    dfs();
     vector<int> topo(N);
     for ( int i = 0; i < N; i++ )
         topo[i] = i;
