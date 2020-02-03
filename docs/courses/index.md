@@ -4,6 +4,7 @@
 
 + [Algorithm Design and Analysis](./ada-fall-2019/index.md)
 + [System Programming](./sp-fall-2019/index.md)
++ [Machine Learning Foundation](./mlfound-fall-2019/index.md)
 
 ## Spring, 2019
 
