@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://kaienlin.github.io/CS-note/algorithms/dijkstra/">
+        <link rel="canonical" href="https://kaienlin.github.io/CS-note/algorithms/prim/">
       
       
       
@@ -38,7 +38,7 @@
     
     
       
-        <title>Dijkstra's Algorithm - Computer Science Note</title>
+        <title>Prim's Algorithm - Computer Science Note</title>
       
     
     
@@ -87,7 +87,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#dijkstras-algorithm" tabindex="1" class="md-skip">
+      <a href="#prims-algorithm" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -113,7 +113,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Dijkstra's Algorithm
+                Prim's Algorithm
               
             </span>
           
@@ -359,15 +359,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#on-sparse-graph-binary-heap-as-pq" class="md-nav__link">
-    On Sparse Graph (binary heap as pq)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#on-dense-graph-array-as-pq" class="md-nav__link">
-    On Dense Graph (array as pq)
+  <a href="#implementation-with-binary-heap" class="md-nav__link">
+    Implementation (with binary heap)
   </a>
   
 </li>
@@ -388,63 +381,56 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/kaienlin/CS-note/edit/master/docs/algorithms/dijkstra.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/kaienlin/CS-note/edit/master/docs/algorithms/prim.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="dijkstras-algorithm">Dijkstra's Algorithm<a class="headerlink" href="#dijkstras-algorithm" title="Permanent link">&para;</a></h1>
-<h2 id="on-sparse-graph-binary-heap-as-pq">On Sparse Graph (binary heap as pq)<a class="headerlink" href="#on-sparse-graph-binary-heap-as-pq" title="Permanent link">&para;</a></h2>
-<p>This implementation has time complexity of <span><span class="MathJax_Preview">O(E\,log\,E)</span><script type="math/tex">O(E\,log\,E)</script></span>, which is suitable for sparse graph (<span><span class="MathJax_Preview">E \ll V^2</span><script type="math/tex">E \ll V^2</script></span>).</p>
-<div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="nf">dijkstra</span><span class="p">(</span><span class="kt">int</span> <span class="n">src</span><span class="p">)</span>
+                <h1 id="prims-algorithm">Prim's Algorithm<a class="headerlink" href="#prims-algorithm" title="Permanent link">&para;</a></h1>
+<h2 id="implementation-with-binary-heap">Implementation (with binary heap)<a class="headerlink" href="#implementation-with-binary-heap" title="Permanent link">&para;</a></h2>
+<ul>
+<li>time complexity: <span><span class="MathJax_Preview">O(E\,log\,E) = O(V^2\,log\,V)</span><script type="math/tex">O(E\,log\,E) = O(V^2\,log\,V)</script></span> (which is more suitable for sparse graph)</li>
+<li>As for <span><span class="MathJax_Preview">O(V^2)</span><script type="math/tex">O(V^2)</script></span> implementation, just use array(random-access) and linear search to implement the min-heap </li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">prim</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">fill</span><span class="p">(</span><span class="n">min_d</span><span class="p">,</span> <span class="n">min_d</span><span class="o">+</span><span class="n">N</span><span class="p">,</span> <span class="n">INF</span><span class="p">);</span>
-    <span class="n">fill</span><span class="p">(</span><span class="n">prev</span><span class="p">,</span> <span class="n">prev</span><span class="o">+</span><span class="n">N</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">min_d</span><span class="p">[</span><span class="n">src</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="n">priority_queue</span><span class="o">&lt;</span> <span class="n">pii</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">pii</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">greater</span><span class="o">&lt;</span><span class="n">pii</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">pq</span><span class="p">;</span>
-    <span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="mi">0</span><span class="p">,</span> <span class="n">src</span><span class="p">});</span>
-
-    <span class="k">while</span> <span class="p">(</span> <span class="o">!</span><span class="n">pq</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="n">pq</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">second</span><span class="p">,</span> <span class="n">d_v</span> <span class="o">=</span> <span class="n">pq</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">first</span><span class="p">;</span>
-        <span class="n">pq</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="n">d_v</span> <span class="o">!=</span> <span class="n">min_d</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
-        <span class="k">for</span> <span class="p">(</span> <span class="k">auto</span> <span class="nl">e</span> <span class="p">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="p">)</span> <span class="p">{</span>
-            <span class="kt">int</span> <span class="n">to</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="n">second</span><span class="p">,</span> <span class="n">wei</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="n">first</span><span class="p">;</span>
-            <span class="k">if</span> <span class="p">(</span> <span class="n">d_v</span> <span class="o">+</span> <span class="n">wei</span> <span class="o">&lt;</span> <span class="n">min_d</span><span class="p">[</span><span class="n">to</span><span class="p">]</span> <span class="p">)</span> <span class="p">{</span>
-                <span class="n">min_d</span><span class="p">[</span><span class="n">to</span><span class="p">]</span> <span class="o">=</span> <span class="n">min_d</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="n">wei</span><span class="p">;</span>
-                <span class="n">prev</span><span class="p">[</span><span class="n">to</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
-                <span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">(</span> <span class="p">{</span><span class="n">min_d</span><span class="p">[</span><span class="n">to</span><span class="p">],</span> <span class="n">to</span><span class="p">}</span> <span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-<h2 id="on-dense-graph-array-as-pq">On Dense Graph (array as pq)<a class="headerlink" href="#on-dense-graph-array-as-pq" title="Permanent link">&para;</a></h2>
-<p>This implementation has time complexity of <span><span class="MathJax_Preview">O(V^2)</span><script type="math/tex">O(V^2)</script></span>, which is suitable for dense graph (<span><span class="MathJax_Preview">E \approx V^2</span><script type="math/tex">E \approx V^2</script></span>). The only difference between this algorithm and the previous one is the implementation of <em>priority queue</em>.</p>
-<div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="nf">dijkstra</span><span class="p">(</span><span class="kt">int</span> <span class="n">src</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">fill</span><span class="p">(</span><span class="n">min_d</span><span class="p">,</span> <span class="n">min_d</span><span class="o">+</span><span class="n">N</span><span class="p">,</span> <span class="n">INF</span><span class="p">);</span>
-    <span class="n">fill</span><span class="p">(</span><span class="n">prev</span><span class="p">,</span> <span class="n">prev</span><span class="o">+</span><span class="n">N</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+    <span class="c1">// initializing</span>
+    <span class="n">fill</span><span class="p">(</span><span class="n">min_w</span><span class="p">,</span> <span class="n">min_w</span><span class="o">+</span><span class="n">N</span><span class="p">,</span> <span class="n">INF</span><span class="p">);</span>
     <span class="n">fill</span><span class="p">(</span><span class="n">used</span><span class="p">,</span> <span class="n">used</span><span class="o">+</span><span class="n">N</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
-    <span class="n">min_d</span><span class="p">[</span><span class="n">src</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-    <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-        <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span> <span class="p">)</span>
-            <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="n">used</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">v</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">||</span> <span class="n">min_d</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">min_d</span><span class="p">[</span><span class="n">v</span><span class="p">])</span> <span class="p">)</span>
-                <span class="n">v</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
+    <span class="c1">// first: weight of edge, second: id of vertex</span>
+    <span class="k">using</span> <span class="n">pii</span> <span class="o">=</span> <span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="c1">// min heap</span>
+    <span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">pii</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">pii</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">greater</span><span class="o">&lt;</span><span class="n">pii</span><span class="o">&gt;&gt;</span> <span class="n">pq</span><span class="p">;</span>
+    <span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">(</span> <span class="n">pii</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">SRC</span><span class="p">)</span> <span class="p">);</span>
+    <span class="n">min_w</span><span class="p">[</span><span class="n">SRC</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 
-        <span class="k">if</span> <span class="p">(</span> <span class="n">min_d</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">==</span> <span class="n">INF</span> <span class="p">)</span>
-            <span class="k">break</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">tot</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">tree_size</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span> <span class="n">tree_size</span> <span class="o">&lt;</span> <span class="n">N</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">pq</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="p">)</span>
+            <span class="k">return</span> <span class="n">NOT_CONNECTED</span><span class="p">;</span>
 
+        <span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="n">pq</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">second</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">w</span> <span class="o">=</span> <span class="n">pq</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">first</span><span class="p">;</span>
+        <span class="n">pq</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="n">min_w</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">!=</span> <span class="n">w</span> <span class="p">)</span>
+            <span class="k">continue</span><span class="p">;</span>
+
+        <span class="n">tot</span> <span class="o">+=</span> <span class="n">w</span><span class="p">;</span>
         <span class="n">used</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-        <span class="k">for</span> <span class="p">(</span> <span class="k">auto</span> <span class="nl">e</span> <span class="p">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="p">)</span> <span class="p">{</span>
-            <span class="kt">int</span> <span class="n">to</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="n">second</span><span class="p">,</span> <span class="n">wei</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="n">first</span><span class="p">;</span>
-            <span class="k">if</span> <span class="p">(</span> <span class="n">min_d</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="n">wei</span> <span class="o">&lt;</span> <span class="n">min_d</span><span class="p">[</span><span class="n">to</span><span class="p">]</span> <span class="p">)</span> <span class="p">{</span>
-                <span class="n">min_d</span><span class="p">[</span><span class="n">to</span><span class="p">]</span> <span class="o">=</span> <span class="n">min_d</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="n">wei</span><span class="p">;</span>
-                <span class="n">prev</span><span class="p">[</span><span class="n">to</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
+        <span class="o">++</span><span class="n">tree_size</span><span class="p">;</span>
+
+        <span class="k">for</span> <span class="p">(</span> <span class="n">pii</span> <span class="nl">edge</span> <span class="p">:</span> <span class="n">G</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">to</span> <span class="o">=</span> <span class="n">edge</span><span class="p">.</span><span class="n">second</span><span class="p">;</span>
+            <span class="kt">int</span> <span class="n">wei</span> <span class="o">=</span> <span class="n">edge</span><span class="p">.</span><span class="n">first</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="n">used</span><span class="p">[</span><span class="n">to</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">wei</span> <span class="o">&lt;</span> <span class="n">min_w</span><span class="p">[</span><span class="n">to</span><span class="p">]</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">(</span> <span class="n">pii</span><span class="p">(</span><span class="n">wei</span><span class="p">,</span> <span class="n">to</span><span class="p">)</span> <span class="p">);</span>
+                <span class="n">min_w</span><span class="p">[</span><span class="n">to</span><span class="p">]</span> <span class="o">=</span> <span class="n">wei</span><span class="p">;</span>
             <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">tot</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
                 

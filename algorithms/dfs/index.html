@@ -400,16 +400,7 @@
                 
                 <h1 id="depth-first-search">Depth First Search<a class="headerlink" href="#depth-first-search" title="Permanent link">&para;</a></h1>
 <h2 id="basic-dfs">Basic DFS<a class="headerlink" href="#basic-dfs" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">N</span><span class="p">;</span>
-<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">G</span><span class="p">[</span><span class="n">MAXN</span><span class="p">];</span>
-<span class="kt">int</span> <span class="n">color</span><span class="p">[</span><span class="n">MAXN</span><span class="p">],</span> <span class="n">tin</span><span class="p">[</span><span class="n">MAXN</span><span class="p">],</span> <span class="n">tout</span><span class="p">[</span><span class="n">MAXN</span><span class="p">],</span> <span class="n">timer</span><span class="p">;</span>
-
-<span class="k">const</span> <span class="kt">int</span> <span class="n">WHITE</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GREY</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">BLACK</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-
-<span class="kt">void</span> <span class="nf">is_back_edge</span><span class="p">(</span><span class="kt">int</span> <span class="n">from</span><span class="p">,</span> <span class="kt">int</span> <span class="n">to</span><span class="p">)</span> <span class="p">{}</span>
-<span class="kt">void</span> <span class="nf">is_cross_edge</span><span class="p">(</span><span class="kt">int</span> <span class="n">from</span><span class="p">,</span> <span class="kt">int</span> <span class="n">to</span><span class="p">)</span> <span class="p">{}</span>
-
-<span class="kt">bool</span> <span class="nf">is_ancestor</span><span class="p">(</span><span class="kt">int</span> <span class="n">anc</span><span class="p">,</span> <span class="kt">int</span> <span class="n">des</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="kt">bool</span> <span class="nf">is_ancestor</span><span class="p">(</span><span class="kt">int</span> <span class="n">anc</span><span class="p">,</span> <span class="kt">int</span> <span class="n">des</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="k">return</span> <span class="n">tin</span><span class="p">[</span><span class="n">anc</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">tin</span><span class="p">[</span><span class="n">des</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">tout</span><span class="p">[</span><span class="n">anc</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">tout</span><span class="p">[</span><span class="n">des</span><span class="p">];</span>
 <span class="p">}</span>
