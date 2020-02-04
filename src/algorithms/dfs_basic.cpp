@@ -1,12 +1,3 @@
-int N;
-vector<int> G[MAXN];
-int color[MAXN], tin[MAXN], tout[MAXN], timer;
-
-const int WHITE = 0, GREY = 1, BLACK = 2;
-
-void is_back_edge(int from, int to) {}
-void is_cross_edge(int from, int to) {}
-
 bool is_ancestor(int anc, int des)
 {
     return tin[anc] < tin[des] && tout[anc] > tout[des];
