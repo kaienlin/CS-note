@@ -5,7 +5,6 @@ struct DSU
 
     void init(int n)
     {
-        assert(n <= MAXN);
         for ( int i = 0; i < n; i++)
             make_set(i);
     }
@@ -33,3 +32,28 @@ struct DSU
         }
     }
 };
+
+struct Edge
+{
+    int u, v, w;
+    bool operator < (const Edge &rhs) const { return w < rhs.w; }
+};
+
+DSU<MAXV> dsu;
+
+int kruskal(vector<Edge> &edges)
+{
+    sort(edges.begin(), edges.end());
+    dsu.init(N);
+    int cost = 0;
+    for ( Edge e : edges ) {
+        if ( dsu.find_set(e.u) != dsu.find_set(e.v) ) {
+            cost += e.w;
+            dsu.unite_set(e.u, e.v);
+        }
+    }
+    if ( dsu.size[dsu.find_set(0)] != N )
+        return NOT_CONNECTED;
+    else
+        return cost;
+}

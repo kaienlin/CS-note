@@ -2,21 +2,21 @@
 
 ## Basic
 
-+ [Binary Search](./binary_search.md)
++ [Binary Search](./binary-search.md)
 
 ## Divide & Conquer
 
-+ [Count Inversion](./count_inversion.md)
-+ [Closest Pair in 2D Plane](./closest_pair_in_2D_plane.md)
++ [Count Inversion](./count-inversion.md)
++ [Closest Pair in 2D Plane](./closest-pair-in-2D-plane.md)
 
 ## Sorting
 
-+ [Linear-Time Sorting](linear-time-sorting.md)
++ [Linear-Time Sorting](linear-sorting.md)
 
 ## Data Structures
 
 + [Disjoint Set Union](./dsu.md)
-+ [Fenwick Tree](./fenwick_tree.md)
++ [Fenwick Tree](./fenwick-tree.md)
 + [Segment Tree](./segment-tree.md)
 
 ## Graph

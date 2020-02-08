@@ -36,4 +36,4 @@ struct BIT
                 bit[x] += bit[i];
         }
     }
-}
+};
