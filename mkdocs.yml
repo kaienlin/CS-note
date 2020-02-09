@@ -55,4 +55,8 @@ extra:
   social:
     - type: 'github'
       link: 'https://github.com/kaienlin'
+
+google_analytics:
+    - 'UA-143774997-1'
+    - 'auto'
       
