@@ -9,9 +9,11 @@ struct Pt {
 bool cmp_x(Pt &a, Pt &b) {
     return a.x < b.x;
 }
+
 bool cmp_y(Pt &a, Pt &b) {
     return a.y < b.y;
 }
+
 bool eq(double a, double b) {
     return fabs(a - b) < eps;
 }
@@ -23,6 +25,7 @@ vector<pii> ans;
 double get_dist(const Pt &a, const Pt &b) {
     return sqrt((double)(a.x-b.x)*(a.x-b.x) + (double)(a.y-b.y)*(a.y-b.y));
 }
+
 void upd_ans(const Pt &a, const Pt &b) {
     double d = get_dist(a, b);
     if ( d < mn ) {
@@ -36,6 +39,7 @@ void upd_ans(const Pt &a, const Pt &b) {
         ans.push_back( {aid, bid} );
     }
 }
+
 void DC(int L, int R) {
     if ( R - L + 1 <= 3 ) {
         for ( int i = L; i <= R; i++)
@@ -61,6 +65,7 @@ void DC(int L, int R) {
         }
     }
 }
+
 void solve() {
     sort(arr+1, arr+N+1, cmp_x);
     mn = DBL_MAX;

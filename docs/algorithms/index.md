@@ -15,6 +15,7 @@
 
 ## Data Structures
 
++ [Binary Heap](./binary-heap.md)
 + [Disjoint Set Union](./dsu.md)
 + [Fenwick Tree](./fenwick-tree.md)
 + [Segment Tree](./segment-tree.md)
