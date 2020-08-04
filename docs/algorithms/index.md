@@ -38,5 +38,5 @@
 
 + Pattern Matching
     - [Knuth-Morris-Pratt Algorithm](./kmp.md)
-    - [Rabin-Karp Algorithm](./robin-karp.md)
+    - [String Hashing](./str-hash.md)
     - [Aho-Corasick Algorithm](./ac-automaton.md)
